@@ -1,0 +1,2 @@
+module ShareIcesHelper
+end

@@ -1,0 +1,2 @@
+class ShareIcesController < ApplicationController
+end
