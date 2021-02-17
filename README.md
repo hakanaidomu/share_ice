@@ -1,4 +1,9 @@
-*
+# 食べたアイスの感想を手軽に投稿して共有できるサービス
+**シェアあいす！(仮)**
+* 食べたアイスの感想を写真と共に投稿できます。
+* 投稿時にアイスの金額とカロリーを入力すると、ユーザー詳細画面で今まで食べたアイスの金額とカロリーを積みあげ笑られます。
+* 
+
 
 # テーブル設計
 
@@ -23,7 +28,7 @@
 | ---------------- | ------------- | ------------------------------ |
 | title            | string        | null: false                    |
 | text             | text          | null: false                    |
-| image            | string        |                                |
+| image            | string        | null: false                    |
 | price            | integer       |                                |
 | calorie          | integer       |                                |
 | user_id          | references    | null: false, foreign_key: true |
