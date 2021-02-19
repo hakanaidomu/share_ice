@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :tweets do |t|
       t.text       :content,              null: false
       t.integer    :price
-      t.integer    :calorie              
+      t.integer    :calorie            
       t.integer    :likes_cound        
       t.references :user,                 foreign_key: true
       t.timestamps
