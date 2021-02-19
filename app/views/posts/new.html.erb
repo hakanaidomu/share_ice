@@ -1,0 +1,55 @@
+<div class="posts-main">
+  <h1 class = "posts-post">食べたアイスの感想を投稿しちゃいますしょう！</h1>
+    <h3 class = "posts-description">金額とカロリーも入力すると日々のアイスの積み上げができますよ</h3>
+
+    <%= form_with(model: @post, local: true) do |f| %>
+    
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# アイス画像 %>
+    <div claa="img-upload">
+      <div class="weight-bobld-text">
+        アイスの画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックをしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"post-image" %>
+      </div>
+    </div> 
+    <%# アイス画像 %>
+    <%# アイスの感想 %>
+    <div class="weight-bold-text">
+      アイスの感想
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :content, class:"content-text", placeholder:"アイスの感想(必須 140文字まで) 例）あいらぶ抹茶アイス！" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    <%# アイスの感想 %>
+    <%# アイスの値段 %>
+    <div class="price-text">
+      <div class="weight-bold-text">
+      アイスの値段はいくらくらいでしたか？
+      </div>
+      <%= f.text_field :price, class:"price-input", id:"post-price", placeholder:"例）150" %>
+    </div>
+    <%# アイスの値段 %>
+    <%# アイスのカロリー%>
+    <div class="calorie-text">
+      <div class="weight-bold-text">
+      アイスのカロリーはどのくらいでしたか？
+      </div>
+      <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
+
+    
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+      無関係な投稿や他者への誹謗中傷はご遠慮ください
+      </p>
+
+    <div class="post-btn-contents">
+      <%= f.submit "投稿する" ,class:"post-btn" %>
+    </div>
+<% end %>

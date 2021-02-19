@@ -1,6 +1,6 @@
 class CreatePosts < ActiveRecord::Migration[6.0]
   def change
-    create_table :tweets do |t|
+    create_table :posts do |t|
       t.text       :content,              null: false
       t.integer    :price
       t.integer    :calorie            
