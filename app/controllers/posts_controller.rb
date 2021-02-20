@@ -22,6 +22,18 @@ class PostsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @post.update(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private 
   def post_params
     params.require(:post).permit(:image, :content, :calorie, :price).merge(user_id: current_user.id)
@@ -32,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def redirect
-    redirect_to root_path if @item.user_id != current_user.id || !@item.order.nil?
+    redirect_to root_path if @post.user_id != current_user.id
   end
 
 end
