@@ -34,6 +34,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post.destroy
+    redirect_to root_path
+  end
+
   private 
   def post_params
     params.require(:post).permit(:image, :content, :calorie, :price).merge(user_id: current_user.id)
