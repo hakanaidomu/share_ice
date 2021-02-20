@@ -1,0 +1,13 @@
+<%= image_tag @post.image %>
+<%= "#{@post.user.nickname}さんの食べたアイスです"%>
+<%= @post.content %>
+<%= "#{@post.price}円" %>
+<%= "#{@post.calorie}kcal" %>
+
+
+<% if user_signed_in? && current_user.id == @post.user_id %>
+  <%= link_to "編集", edit_post_path, method: :get %>
+  <%= link_to "削除", @psy_path, method: :delete %>
+<% end %>
+
+  

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  
+  before_action :redirect, only: [:edit, :update, :destroy]
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -30,4 +30,9 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
+  def redirect
+    redirect_to root_path if @item.user_id != current_user.id || !@item.order.nil?
+  end
+
 end
