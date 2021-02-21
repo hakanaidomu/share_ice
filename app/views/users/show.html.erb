@@ -2,7 +2,8 @@
 <h1><%= @user.nickname %></h1>
 <% if user_signed_in? && current_user.id == @user.id %>
 <%= link_to "プロフィールを編集", edit_user_registration_path %>
-
-<%= "あなたが今まで食べたアイスの合計金額は#{@total_price}円です" %>
-<%= "あなたが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
+<% end %>
+<%= "#{@user.nickname}さんが今まで食べたアイスの合計金額は#{@total_price}円です" %>
+<%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
 <%= render partial: "posts/post", collection: @posts %>
+

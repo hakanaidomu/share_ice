@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :redirect, only: [:edit, :update, :destroy]
 
   def show
     @user = User.find(params[:id])
@@ -7,4 +8,7 @@ class UsersController < ApplicationController
     @total_calorie = @posts.all.sum(:calorie)
   end
 
+  def redirect
+    redirect_to root_path if @user_id != current_user.id
+  end
 end
