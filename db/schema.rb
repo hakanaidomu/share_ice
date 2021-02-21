@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_044242) do
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "description"
+    t.text "discription"
     t.integer "total_price"
     t.integer "total_calorie"
     t.datetime "created_at", precision: 6, null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_044242) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "Description"
+    t.text "description"
     t.string "profile_photo"
     t.integer "total_price"
     t.integer "total_calorie"

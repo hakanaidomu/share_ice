@@ -5,5 +5,6 @@
 <% end %>
 <%= "#{@user.nickname}さんが今まで食べたアイスの合計金額は#{@total_price}円です" %>
 <%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
+<%= @user.description %>
 <%= render partial: "posts/post", collection: @posts %>
 

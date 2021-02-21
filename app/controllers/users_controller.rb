@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
@@ -8,26 +9,33 @@ class UsersController < ApplicationController
     @total_calorie = @posts.all.sum(:calorie)
   end
 
-  def redirect
-    redirect_to root_path if @user_id != current_user.id
-  end
 
   def edit
     @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if current_user == @user
-      if @user.update(user_params)
-        flash[:success] = 'ユーザー情報を編集しました。'
-        render :edit
-      else
-        flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
-        render :edit
-      end   
+    if current_user.update(user_params)
+      redirect_to root_path, notice: 'ユーザー情報を更新しました'
     else
-        redirect_to root_url
+      flash.now[:alert] = "入力内容をご確認ください"
+      render :edit
     end
   end
+
+  private
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:user_update, keys: [:description, :nickname, :profile_photo])
+  end
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :description, :profile_photo)
+  end
+
+  def redirect
+    redirect_to root_path if @user_id != current_user.id
+  end
+
 end
