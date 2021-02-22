@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "posts#index"
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
   get '/users/:id', to: 'users#show', as: 'user'
 end
