@@ -62,3 +62,4 @@ gem 'pry-rails'
 gem 'carrierwave', '~> 2.0'
 gem 'jquery-rails'
 gem 'react_on_rails'
+gem 'mini_racer', platforms: :ruby
