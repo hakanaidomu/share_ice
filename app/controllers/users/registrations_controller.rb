@@ -22,12 +22,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:description, :nickname, :profile_photo])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :description, :image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:description, :nickname, :image])
   end
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :description, :profile_photo)
+    params.require(:user).permit(:nickname, :email, :description, :image)
   end
 
   # GET /resource/sign_up
