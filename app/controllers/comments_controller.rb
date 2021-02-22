@@ -4,14 +4,14 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-    render :index
+      render template: 'posts/show'
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      render :index
+      render template: 'posts/show'
     end
   end
 
