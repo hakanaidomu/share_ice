@@ -10,6 +10,6 @@
     <p class="card_summary">
       <%= post.calorie %>kcal
     </p>
-    <%# <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %> 
+    <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %> 
   </div>
 </div>
