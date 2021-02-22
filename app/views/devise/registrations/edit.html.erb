@@ -24,19 +24,19 @@
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
           </div>
 
+          <div class="field">
+            <%= f.label :current_password, "現在のパスワード" %> 
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control"%>
+          </div>
+
           <div class="form-group">
-            <%= f.label :password, "パスワード" %>
+            <%= f.label :password, "新しいパスワード" %>
             <%= f.password_field :password, autofocus: "off", class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password_confirmation, "パスワードの確認" %>
+            <%= f.label :password_confirmation, "新しいパスワードの確認" %>
             <%= f.password_field :password_confirmation, autofocus: "off", class: "form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :current_password %> 
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
           </div>
 
           <%= f.submit "変更する", class: "btn btn-primary" %>

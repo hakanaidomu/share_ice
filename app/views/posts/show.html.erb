@@ -7,7 +7,7 @@
 <%= link_to "#{@post.user.nickname}さんの詳細", user_path(@post.user.id) %>
 <% end %>
 <% if user_signed_in? && current_user.id == @post.user_id %>
-  <%= link_to "編集", edit_post_path(@post.user.id), method: :get %>
+  <%= link_to "編集", edit_post_path(@post.id), method: :get %>
   <%= link_to "削除", @post_path, method: :delete %>
 <% end %>
 

@@ -4,14 +4,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   before_action :redirect, only: [:edit, :update, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_user, only: [:edit, :update, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   def edit
   end
 
   def update
-    binding.pry
     @user.update(user_params)
     if current_user.update(user_params)
       redirect_to root_path, notice: 'ユーザー情報を更新しました'
@@ -32,9 +30,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(:nickname, :email, :description, :profile_photo)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
   # GET /resource/sign_up
   # def new
   #   super
