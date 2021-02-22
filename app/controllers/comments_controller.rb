@@ -3,17 +3,22 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
-    render :index if @comment.save
+    if @comment.save
+    render :index
+    end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    render :index if @comment.destroy
+    if @comment.destroy
+      render :index
+    end
   end
 
   private
 
-  def comment_params
-    params.require(:comment).permit(:content, :post_id, :user_id)
-  end
+    def comment_params
+      params.require(:comment).permit(:content, :post_id, :user_id)
+    end
+
 end
