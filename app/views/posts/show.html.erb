@@ -11,13 +11,4 @@
   <%= link_to "削除", @post_path, method: :delete %>
 <% end %>
 
- <div>
-    <h4>コメント</h4>
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments } %>
-    </div>  
-    <% if user_signed_in? %>
-      <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-    <% end %>
-  </div>
   
