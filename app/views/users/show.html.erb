@@ -1,7 +1,7 @@
-<% if @user.image == nil %>
-<%= image_tag avatar_url(@user), class: "round-img" %>
-<% else %>
+<% if @user.image.present? %>
 <%= image_tag(@user.image.url) %>
+<% else %>
+<%= image_tag avatar_url(@user), class: "round-img" %>
 <% end %>
 <h1><%= @user.nickname %></h1>
 <% if user_signed_in? && current_user.id == @user.id %>
