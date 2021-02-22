@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
