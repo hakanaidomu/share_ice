@@ -12,21 +12,12 @@
 <% end %>
 
 
-<div class="row">
-    <ul>
-        <li class="comment-create">
-            <h3 class="text-left title">コメント</h3>
-        </li>
-        <li id="comments_area">
-            <%= render partial: 'comments/index', locals: { comments: @comments } %>
-        </li>
-    </ul>
-    <hr>
+<div>
+  <h4>コメント</h4>
+    <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>  
     <% if user_signed_in? %>
-        <div class="comment-create">
-            <h3 class="text-left">コメントを投稿する</h3>
-            <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-        </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
     <% end %>
 </div>
-  
