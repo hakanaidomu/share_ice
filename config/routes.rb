@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   get '/users/:id', to: 'users#show', as: 'user'
+  post   '/like/:post_id' => 'likes#like',   as: 'like'
+  delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
 end
