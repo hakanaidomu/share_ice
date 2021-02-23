@@ -40,6 +40,8 @@
       アイスのカロリーはどのくらいでしたか？
       </div>
       <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
+      <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
+      <%= text_field_tag 'post[tag_list]', @post.tag_list, :class => "form-control" %>
 
     
     <%# 注意書き %>

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end
