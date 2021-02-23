@@ -11,5 +11,6 @@
       <%= post.calorie %>kcal
     </p>
     <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %> 
+    <%= render 'likes/like', post: post %>
   </div>
 </div>

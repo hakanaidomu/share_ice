@@ -15,6 +15,6 @@ class LikesController < ApplicationController
 
   def set_variables
     @post = Post.find(params[:post_id])
-    @id_name = "#like-link-#{@story.id}"
+    @id_name = "#like-link-#{@post.id}"
   end
 end
