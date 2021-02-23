@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments,dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
   has_one_attached :image
 
   validates :nickname, presence: true
