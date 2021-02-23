@@ -3,9 +3,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :redirect, only: [:edit, :update, :destroy]
+  
   def index
-    @posts = Post.all.order(created_at: :desc)
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag])
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
   end
+
   def new
     @post = Post.new
   end
@@ -43,7 +49,7 @@ class PostsController < ApplicationController
 
   private 
   def post_params
-    params.require(:post).permit(:image, :content, :calorie, :price).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :content, :calorie, :price, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_post

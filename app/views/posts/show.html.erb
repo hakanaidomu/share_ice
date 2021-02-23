@@ -4,6 +4,7 @@
 <%= "#{@post.price}円" %>
 <%= "#{@post.calorie}kcal" %>
 <%= render 'likes/like', post: @post %>
+<p>tags: <%= raw(@post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p>
 <% if user_signed_in? && current_user.id != @post.user.id %>
 <%= link_to "#{@post.user.nickname}さんの詳細", user_path(@post.user.id) %>
 <% end %>
