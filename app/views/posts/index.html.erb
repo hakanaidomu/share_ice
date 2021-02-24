@@ -2,10 +2,9 @@
 <% @tags.each do |tag| %>
 <%= link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name)%>
 <% end %>
-
-<% if @search_posts == nil %>
-<%= render partial: "post", collection: @posts %>
-<% else %>
+<% if @search_posts != nil %>
 <%= render partial: "post", collection: @search_posts %>
+<% else %>
+<%= render partial: "post", collection: @posts %>
 <% end %>
 
