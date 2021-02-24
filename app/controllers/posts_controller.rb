@@ -60,5 +60,5 @@ class PostsController < ApplicationController
   def redirect
     redirect_to root_path if @post.user_id != current_user.id
   end
-
+  
 end
