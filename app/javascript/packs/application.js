@@ -7,6 +7,9 @@ import '../stylesheets/application';
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
