@@ -1,6 +1,0 @@
-*= require 'jquery-ui/autocomplete'
-*= require 'jquery.tagit'
-*= require_tree .
-*= require jquery.tagit
-*= require tagit.ui-zendesk
-*= require_self

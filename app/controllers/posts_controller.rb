@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
   
   def index
-    @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
@@ -15,8 +14,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @tags = Post.tag_counts_on(:tags).most_used(20) 
-    @all_tag_list = ActsAsTaggableOn::Tag.all.pluck(:name)
   end
 
   def create
