@@ -14,8 +14,14 @@
     <p class="card_summary">
       <%= post.calorie %>kcal
     </p>
-    <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %> 
-    <%= render 'likes/like', post: post %>
+    <div>
+    <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %>
+    </div> 
+    <div>
     <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+    </div>
+    <div>
+    <%= render 'likes/like', post: post %>
+    </div>
   </div>
 </div>
