@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "posts#index"
   resources :posts do
+    resources :searches, only: :index
     resources :comments, only: [:create, :destroy]
+    
   end
   get '/users/:id', to: 'users#show', as: 'user'
   post   '/like/:post_id' => 'likes#like',   as: 'like'
