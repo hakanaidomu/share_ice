@@ -36,7 +36,7 @@
     <% end %>
     </div>
     <div class="searchbox">
-      <%= search_form_for @search, url: post_searches_path do |f| %>
+      <%= search_form_for @search, url: posts_path do |f| %>
         <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
         <%= f.submit ("検索") , class: 'search-btn'%>
        <% end %>

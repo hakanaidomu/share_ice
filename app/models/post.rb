@@ -6,12 +6,4 @@ class Post < ApplicationRecord
   has_one_attached :image
   validates :content, presence: true
   acts_as_taggable
-
-  def self.search(search)
-    if search
-      Post.where('text LIKE(?)', "%#{search}%")
-    else
-      Post.all
-    end
-  end
 end
