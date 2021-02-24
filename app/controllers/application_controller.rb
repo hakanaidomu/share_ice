@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+  before_action :set_search
   private
 
   def configure_permitted_parameters
@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:description, :nickname, :image])
   end
 
+  def set_search
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result.order(created_at: :desc)
+  end
 end
