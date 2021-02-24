@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
-  
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :redirect, only: [:edit, :update, :destroy]
-  
+  before_action :set_search, only: [:index, :show, :edit, :search]
+
   def index
     @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
@@ -48,6 +48,7 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+
   private 
   def post_params
     params.require(:post).permit(:image, :content, :calorie, :price, :tag_list).merge(user_id: current_user.id)
@@ -59,6 +60,11 @@ class PostsController < ApplicationController
 
   def redirect
     redirect_to root_path if @post.user_id != current_user.id
+  end
+
+  def set_search
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result.order(created_at: :desc)
   end
   
 end
