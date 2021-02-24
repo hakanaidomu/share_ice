@@ -1,1 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery.tagit";       // 記述の順番に注意
+@import "tagit.ui-zendesk";   // こっちを後に書かないと、タグ削除（ x ）が表示されない

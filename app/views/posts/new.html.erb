@@ -43,8 +43,17 @@
       <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
       <div>
       <div>
-      <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-      <%= text_field_tag 'post[tag_list]', @post.tag_list, :class => "form-control" %>
+        <%= f.label :tag_list, "タグ入力", class: "col-md-2 control-label" %>
+       <div class="col-md-10">
+        <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
+
+        <% if @tags.present? %>
+          <% @tags.each do |tag| %>
+            <% link_to "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name)%>
+          <% end %>
+        <% end %>
+       </div>
+       
       </div>
     
     <%# 注意書き %>
