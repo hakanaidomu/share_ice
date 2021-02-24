@@ -12,6 +12,9 @@ require("@rails/activestorage").start()
 require("channels")
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require tag-it
+//= require_tree .
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
