@@ -1,1 +1,11 @@
+<h3>人気のタグ</h3>
+<% @tags.each do |tag| %>
+<%= link_to "##{tag.name}(#{tag.taggings_count})", tag_path(tag.name)%>
+<% end %>
+
 <%= render partial: "post", collection: @posts %>
+
+
+
+
+

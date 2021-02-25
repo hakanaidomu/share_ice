@@ -1,4 +1,6 @@
+<% if @post.image.present? %>
 <%= image_tag @post.image %>
+<% end %>
 <%= "#{@post.user.nickname}さんの食べたアイスです"%>
 <%= @post.content %>
 <%= "#{@post.price}円" %>

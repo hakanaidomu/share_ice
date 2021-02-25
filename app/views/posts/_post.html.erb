@@ -1,5 +1,9 @@
 <div class="card">
+  <% if post.image.present? %>
   <%= link_to image_tag(post.image, class: :card__img ), post_path(post.id), method: :get %>
+  <%else%>
+  <%= link_to "投稿の詳細へ", post_path(post.id), method: :get %>
+  <% end %>
   <div class="card__body">
     <p class="card__summary">
       <%= post.content %>
@@ -10,8 +14,14 @@
     <p class="card_summary">
       <%= post.calorie %>kcal
     </p>
-    <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %> 
-    <%= render 'likes/like', post: post %>
+    <div>
+    <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %>
+    </div> 
+    <div>
     <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+    </div>
+    <div>
+    <%= render 'likes/like', post: post %>
+    </div>
   </div>
 </div>

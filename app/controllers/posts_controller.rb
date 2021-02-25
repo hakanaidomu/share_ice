@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
   
   def index
+    @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
@@ -59,5 +60,5 @@ class PostsController < ApplicationController
   def redirect
     redirect_to root_path if @post.user_id != current_user.id
   end
-
+  
 end

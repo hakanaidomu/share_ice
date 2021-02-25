@@ -25,7 +25,7 @@
         <%= link_to '投稿の詳細', "#", class: "nav-link text-dark" %>
         <%= link_to '投稿一覧', "#", class: "nav-link text-dark" %>
         <%= link_to 'タグ一覧', "#", class: "nav-link text-dark" %>
-
+        
     <% if user_signed_in? %>
         <%= link_to current_user.nickname, "#", class: "nav-link text-dark" %>
         <%= link_to 'ユーザー詳細', user_path(current_user), class: "nav-link text-dark" %> 
@@ -34,6 +34,12 @@
         <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-dark" %>
         <%= link_to '新規登録', new_user_registration_path, class: "nav-link text-dark" %>
     <% end %>
+    </div>
+    <div class="searchbox">
+      <%= search_form_for @search, url: posts_path do |f| %>
+        <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
+        <%= f.submit ("検索") , class: 'search-btn'%>
+       <% end %>
     </div>
       </div>
 </header>
