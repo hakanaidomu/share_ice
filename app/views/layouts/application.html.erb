@@ -33,6 +33,7 @@
     <% else %>
         <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-dark" %>
         <%= link_to '新規登録', new_user_registration_path, class: "nav-link text-dark" %>
+        <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, class: "nav-link text-dark"%>
     <% end %>
     </div>
     <div class="searchbox">
