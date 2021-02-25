@@ -21,11 +21,11 @@
         <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, class: "nav-link text-dark"%>
     <% end %>
     </div>
-    <div class="searchbox">
-      <%= search_form_for @search, url: posts_path do |f| %>
-        <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
-        <%= f.submit ("検索") , class: 'search-btn'%>
-       <% end %>
-    </div>
+    <%# <div class="searchbox"> %>
+      <%# <%= search_form_for @search, url: posts_path do |f| %>
+        <%# <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
+        <%# <%= f.submit ("検索") , class: 'search-btn'%>
+      <%# <% end %>
+    <%# </div> %>
       </div>
 </header>
