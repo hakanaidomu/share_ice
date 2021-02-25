@@ -2,7 +2,19 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :check_guest, only: [:edit, :update, :destroy]
 
+  def new_guest
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーはユーザー情報を編集できません。'
+    end
+  end
   # GET /resource/sign_in
   # def new
   #   super
