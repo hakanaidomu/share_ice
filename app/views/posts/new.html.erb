@@ -44,7 +44,7 @@
       <div>
       <div>
       <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-      <%= text_field_tag 'post[tag_list]', @post.tag_list, "data-role" => "tagsinput" %>
+      <%= text_field_tag 'post[tag_list]', @post.tag_list, data: {role: "tagsinput"} %>
       </div>
     
     <%# 注意書き %>
