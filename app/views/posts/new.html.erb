@@ -43,8 +43,8 @@
       <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
       <div>
       <div>
-      <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-      <%= text_field_tag 'post[tag_list]', @post.tag_list, data: {role: "tagsinput"} %>
+      <%= f.label :tag_list, 'タグをカンマ区切りで入力してください' %>
+      <%= text_field_tag 'post[tag_list]', @post.tag_list, id:"post-tag", placeholder:"例) バニラ,チョコ,抹茶" %>
       </div>
     
     <%# 注意書き %>
