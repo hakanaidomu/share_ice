@@ -104,8 +104,6 @@ GEM
     faker (2.13.0)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
-    font-awesome-sass (5.15.1)
-      sassc (>= 1.11)
     gimei (0.5.1)
       romaji
     globalid (0.4.2)
@@ -259,9 +257,6 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unicode-display_width (2.0.0)
@@ -299,7 +294,6 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   devise
   faker
-  font-awesome-sass
   gimei
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
@@ -317,7 +311,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
