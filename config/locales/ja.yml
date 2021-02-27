@@ -1,0 +1,8 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     post:
+       content: アイスの感想
+       image: 画像
