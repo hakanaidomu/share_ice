@@ -1,0 +1,36 @@
+<div class="container">
+</header>
+  <header class="share-ice-header py-3 ">
+    <div class="row flex-nowrap justify-content-around align-items-center text-warning">
+      <div class="col-4 text-center">
+        <div class="searchbox">
+          <%= search_form_for @search, url: posts_path do |f| %>
+            <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
+            <%= f.submit ("検索") , class: 'search-btn'%>
+          <% end %>
+        </div> 
+      </div>
+      <div class="col-4">
+        <h1><%= link_to 'シェアあいす！', root_path,class: "share-ice-header-log text-dark" %></h1>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        <% if user_signed_in? %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-outline-secondary"%>
+        <% else %>
+         <%= link_to 'かんたんログイン', users_guest_sign_in_path, method: :post, class: "btn btn-sm btn-outline-secondary" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row flex-nowrap justify-content-around align-items-center text-warning">
+     <%= link_to '新規投稿', new_post_path, class: "nav-link text-dark btn btn-sm btn-outline-secondary" %>
+     <%= link_to '投稿一覧', root_path, class: "nav-link text-dark btn btn-sm btn-outline-secondary" %>
+      <% if user_signed_in? %>
+        <%= link_to 'ユーザー詳細', user_path(current_user), class: "nav-link text-dark btn btn-sm btn-outline-secondary" %> 
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-dark btn btn-sm btn-outline-secondary" %>
+    <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: "nav-link text-dark btn btn-sm btn-outline-secondary" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "nav-link text-dark btn btn-sm btn-outline-secondary" %>
+    <% end %>
+    </div>
+  </header>
+<div>
