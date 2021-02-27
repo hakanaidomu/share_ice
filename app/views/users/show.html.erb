@@ -11,4 +11,5 @@
 <%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
 <%= @user.description %>
 <%= render partial: "posts/post", collection: @posts %>
+<%= paginate @posts %>
 
