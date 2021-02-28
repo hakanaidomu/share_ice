@@ -1,6 +1,15 @@
 body {
   padding-top: 56px;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-img-top { 
+  width: 100% !important; }
+
 .pagination>li>a {          
   border: none;     
   color: #696969;   
