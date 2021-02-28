@@ -1,3 +1,6 @@
+body {
+  padding-top: 56px;
+}
 .pagination>li>a {          
   border: none;     
   color: #696969;   
