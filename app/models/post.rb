@@ -5,5 +5,6 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, source: :user
   has_one_attached :image
   validates :content, presence: true
+  validates :image, presence: true
   acts_as_taggable
 end
