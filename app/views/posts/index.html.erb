@@ -4,7 +4,9 @@
       <h1 class="my-4">人気のタグ</h1>
         <div class="list-group">
           <% @tags.each do |tag| %>
-            <%= link_to "##{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: "list-group-item"%>
+            <span class="badge badge badge-info">
+              <%= link_to "##{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: "list-group-item"%>
+            </span>
           <% end %> 
         </div>
     </div>

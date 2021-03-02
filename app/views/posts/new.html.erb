@@ -39,13 +39,16 @@
     <div class="calorie-text">
       <div class="weight-bold-text">
       アイスのカロリーはどのくらいでしたか？
+        </div>
+          <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
+        <div>
       </div>
-      <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
-      <div>
-      <div>
-      <%= f.label :tag_list, 'タグをカンマ区切りで入力してください' %>
-      <%= text_field_tag 'post[tag_list]', @post.tag_list, id:"post-tag", placeholder:"例) バニラ,チョコ,抹茶" %>
-      </div>
+    </div> 
+        <div class="tags">
+          <%= f.label :tag_list %>
+          <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"} %>
+        </div>
+   
     
     <%# 注意書き %>
     <div class="caution">

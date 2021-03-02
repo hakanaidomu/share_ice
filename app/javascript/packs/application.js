@@ -11,8 +11,9 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
+require("bootstrap-tagsinput")
 require('slick')
-// require("bootstrap-tagsinput")
+
 //= require jquery3
 //= require popper
 //= require turbolinks
