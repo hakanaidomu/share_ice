@@ -19,7 +19,9 @@
         <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %>
       </div> 
       <div>
+        <span class="badge badge badge-info">
         <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+        </span>
       </div>
       <div>
         <%= render 'likes/like', post: post %>
