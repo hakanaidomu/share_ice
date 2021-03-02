@@ -7,6 +7,9 @@ img {
   height: auto;
 }
 
+.slick-prev:before {
+  color: black;
+}
 .slider img {
   padding-top: 3vh;
   width: 800px;

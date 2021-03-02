@@ -5,10 +5,11 @@ class PostsController < ApplicationController
   before_action :redirect, only: [:edit, :update, :destroy]
   
   def index
-      @randams = Post.all
+      @randams = Post.order("RAND()").limit(5)
     @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(6)
+      @randams = Post.tagged_with(params[:tag]).order("RAND()").limit(5)
     else
       @posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
     end
