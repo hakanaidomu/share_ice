@@ -11,8 +11,8 @@
       <div class="col-lg-9">
         <div class="previews">
           <div class="slider">
-            <% @randams.each do |post| %>
-              <%= link_to image_tag(post.image), post_path(post.id), method: :get, class: :slick_image %>
+            <% @randams.each do |randam| %>
+              <%= link_to image_tag(randam.image), post_path(randam.id), method: :get, class: :slick_image %>
             <% end %>
           </div>
         </div>
