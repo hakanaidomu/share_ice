@@ -50,12 +50,6 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    return nil if params[:keyword] == ""
-    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
-    render json:{ keyword: tag }
-  end
-
   private 
   def post_params
     params.require(:post).permit(:image, :content, :calorie, :price, :tag_list).merge(user_id: current_user.id)
