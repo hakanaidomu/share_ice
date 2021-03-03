@@ -17,7 +17,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    render json: posts
   end
 
   def create

@@ -13,10 +13,4 @@ Rails.application.routes.draw do
   post   '/like/:post_id' => 'likes#like',   as: 'like'
   delete '/like/:post_id' => 'likes#unlike', as: 'unlike'
   get 'tags/:tag', to: 'posts#index', as: :tag
-
-  tagspace :api, { format: 'json' } do
-    tagspace :v1 do
-      resources :posts
-    end
-  end
 end
