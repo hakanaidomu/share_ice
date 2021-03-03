@@ -1,25 +1,27 @@
 <div class="col-lg-4 col-md-6 mb-4">
-  <div class="card h-100">
+  <div class="card border-info h-100">
     <% if post.image.present? %>
-      <%= link_to image_tag(post.image, class: :card__img ), post_path(post.id), method: :get, class:"card-img-top" %>
+      <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-image"%>
     <% else%>
       <%= link_to "投稿の詳細へ", post_path(post.id), method: :get %>
     <% end %>
     <div class="card-body">
-      <p class="card-summary">
-        <%= post.price %>円
-      </p>
-      <p class="card-summary">
-        <%= post.calorie %>kcal
-      </p>
       <p class="card-text">
         <%= post.content %>
+      </p>
+      <p class="card-summary">
+        アイスの値段<%= post.price %>円
+      </p>
+      <p class="card-summary">
+        アイスのカロリー<%= post.calorie %>kcal
       </p>
       <div class="care-user">
         <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %>
       </div> 
       <div>
+        <span class="badge badge badge-info">
         <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+        </span>
       </div>
       <div>
         <%= render 'likes/like', post: post %>
@@ -27,3 +29,4 @@
     </div>
   </div>
 </div>
+
