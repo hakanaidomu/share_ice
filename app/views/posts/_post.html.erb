@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card border-info h-100">
     <% if post.image.present? %>
-      <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-image"%>
+      <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-image img-thumbnail"%>
     <% else%>
       <%= link_to "投稿の詳細へ", post_path(post.id), method: :get %>
     <% end %>
