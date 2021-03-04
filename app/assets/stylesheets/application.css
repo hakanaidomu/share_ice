@@ -1,3 +1,11 @@
+.jumbotron { 
+  background:url(image/background_image.jpg);
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  background-attachment: fixed;
+}
+
 body {
   padding-top: 56px;
 }
