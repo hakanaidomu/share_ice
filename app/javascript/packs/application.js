@@ -13,6 +13,7 @@ require("channels")
 require('jquery')
 require("tagsinput")
 require('slick')
+require('tag')
 
 //= require jquery3
 //= require popper

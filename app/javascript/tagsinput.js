@@ -22,12 +22,12 @@
     },
     freeInput: true,
     addOnBlur: true,
-    maxTags: undefined,
-    maxChars: undefined,
+    maxTags: 5,
+    maxChars: 12,
     confirmKeys: [13, 44],
     delimiter: ',',
     delimiterRegex: null,
-    cancelConfirmKeysOnEmpty: false,
+    cancelConfirmKeysOnEmpty: true,
     onTagExists: function(item, $tag) {
       $tag.hide().fadeIn();
     },
