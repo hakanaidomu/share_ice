@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   
   def index
       @randams = Post.order("RAND()").limit(10)
-    @tags = Post.tag_counts_on(:tags).most_used(20)
+      @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(6)
       @randams = Post.tagged_with(params[:tag]).order("RAND()").limit(5)
