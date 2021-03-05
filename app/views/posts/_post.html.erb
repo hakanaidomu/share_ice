@@ -1,32 +1,28 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card border-info h-100">
-    <% if post.image.present? %>
-      <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-image"%>
-    <% else%>
-      <%= link_to "投稿の詳細へ", post_path(post.id), method: :get %>
-    <% end %>
-    <div class="card-body">
-      <p class="card-text">
-        <%= post.content %>
-      </p>
-      <p class="card-summary">
-        アイスの値段<%= post.price %>円
-      </p>
-      <p class="card-summary">
-        アイスのカロリー<%= post.calorie %>kcal
-      </p>
-      <div class="care-user">
-        <%= link_to "by #{post.user.nickname}", user_path(post.user, method: :get, class: :card__user) %>
-      </div> 
-      <div>
-        <span class="badge badge badge-info">
-        <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
-        </span>
-      </div>
-      <div>
-        <%= render 'likes/like', post: post %>
-      </div>
+    <div class="card-header">
+      <%= link_to "#{post.user.nickname}さんの投稿です", user_path(post.user, method: :get) %>
     </div>
+    <div class="card-body">
+      <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-img-top embbed-responsive"%>
+    <p class="card-text ">
+        <%= post.content %>
+    </p>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item ">
+      <% if post.tag_list.any? %>
+        <% post.tags.each do |tag| %>
+          <%= link_to posts_path(tag: tag.name) do %>
+            <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
+          <% end %>
+        <% end %>
+      <% end %>
+      <span><%= render 'likes/like', post: post %> </span>
+    </li>
+  </ul>
+  </div>
+    <div class="card-header text-center">
+      <a> <%= link_to "詳細ページへ", post_path(post.id), method: :get, class:'btn btn-primary' %></a>
+    </div> 
   </div>
 </div>
-
