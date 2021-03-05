@@ -11,9 +11,11 @@
     </li>
     <li class="list-group-item ">
       <% if post.tag_list.any? %>
-        <span class="text-break badge badge badge-info">
-          <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
-        </span>
+        <% post.tags.each do |tag| %>
+          <%= link_to posts_path(tag: tag.name) do %>
+            <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
+          <% end %>
+        <% end %>
       <% end %>
     </li>
     <li class="list-group-item"></li>
