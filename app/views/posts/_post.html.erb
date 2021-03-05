@@ -1,14 +1,14 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card border-info h-100">
+    <div class="card-header">
+      <%= link_to "#{post.user.nickname}さんの投稿です", user_path(post.user, method: :get) %>
+    </div>
     <div class="card-body">
       <%= link_to image_tag(post.image), post_path(post.id), method: :get, class:"card-img-top embbed-responsive"%>
     <p class="card-text ">
         <%= post.content %>
     </p>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <%= link_to "#{post.user.nickname}さんの投稿です", user_path(post.user, method: :get) %>
-    </li>
     <li class="list-group-item ">
       <% if post.tag_list.any? %>
         <% post.tags.each do |tag| %>
@@ -17,13 +17,12 @@
           <% end %>
         <% end %>
       <% end %>
+      <span><%= render 'likes/like', post: post %> </span>
     </li>
-    <li class="list-group-item"></li>
-  <div class="card-body">
-    <a href="#" class="card-link">リンク1</a>
-    <a href="#" class="card-link">リンク2</a>
-  </div>
-    </div>
   </ul>
+  </div>
+    <div class="card-header text-center">
+      <a> <%= link_to "詳細ページへ", post_path(post.id), method: :get, class:'btn btn-primary' %></a>
+    </div> 
   </div>
 </div>
