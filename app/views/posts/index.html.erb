@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-lg-2">
       <h1 class="my-4 text-center alert alert-info rounded-circle font-italic ">人気タグ</h1>
-        <div class="list-group">
+        <div class="list-group text-break">
           <% @tags.each do |tag| %>
-            <span class="badge badge badge-info">
+            <span class=" badge badge badge-info">
               <%= link_to "##{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: "list-group-item"%>
             </span>
           <% end %> 
