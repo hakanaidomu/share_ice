@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-lg-2">
       <h1 class="my-4 text-center alert alert-info rounded-circle font-italic ">人気タグ</h1>
-        <div class="list-group text-break">
+        <div class="list-group text-center text-break">
             <% @tags.each do |tag|%>
               <%= link_to posts_path(tag: tag.name) do%>
                 <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
-            <%end%>
               <%end%>
+            <%end%>
         </div>
     </div>
       <div class="col-lg-10">

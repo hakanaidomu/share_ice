@@ -11,17 +11,17 @@
     </li>
     <li class="list-group-item ">
       <% if post.tag_list.any? %>
-        <% @tags.each do |tag|%>
-          <%= link_to posts_path(tag: tag.name) do%>
-            <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
-          <%end%>
-        <%end%>
+        <span class="text-break badge badge badge-info">
+          <%= raw(post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %>
+        </span>
       <% end %>
     </li>
     <li class="list-group-item"></li>
-  </ul>
   <div class="card-body">
     <a href="#" class="card-link">リンク1</a>
     <a href="#" class="card-link">リンク2</a>
+  </div>
+    </div>
+  </ul>
   </div>
 </div>
