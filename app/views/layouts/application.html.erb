@@ -47,7 +47,7 @@
           </li>
             <% else %>
           <li class="nav-item">
-              <%= link_to 'ログイン', new_user_session_path, class: "nav-link btn btn-sm btn-outline-secondary" %>
+              <%= link_to 'ログイン', new_user_session_path, class: "nav-link btn btn-sm btn-outline-secondary","data-toggle": "modal", "data-target": "#signinModal" %>
           </li>
           <li class="nav-item">
               <%= link_to '新規登録', new_user_registration_path, class: "nav-link  btn btn-sm btn-outline-secondary" %>
@@ -69,7 +69,7 @@
 <div class="text-light">© 2021 share-ice!</div>
 </footer>
 
-
+<%= render "devise/sessions/new" %>
 </body>
 
 </html>
