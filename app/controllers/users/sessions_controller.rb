@@ -2,7 +2,6 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  before_action :check_guest, only: [:edit, :update, :destroy]
 
   def create
     auth_options = { scope: resource_name, recall: "#{controller_path}#failed" }
@@ -24,11 +23,6 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
-  def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーはユーザー情報を編集できません。'
-    end
-  end
 
   def create
     auth_options = { scope: resource_name, recall: "#{controller_path}#failed" }
