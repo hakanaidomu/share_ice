@@ -28,6 +28,7 @@
   <div class="foprm-grou m-2">
       <%= link_to 'かんたんログイン', users_guest_sign_in_path, method: :post, class: "btn btn-info" %>
   </div>
+  <%= f.hidden_field :url, value: request.fullpath %>
   <% end %>
 
         </div>
