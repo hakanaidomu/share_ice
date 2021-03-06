@@ -6,23 +6,23 @@
   
   <div class="foprm-grou">
   <%= f.label :nickname, "ニックネーム(8文字以内必須)" %>
-  <%= f.text_field :nickname, autofocus: true, maxlength: "8", class: "w-100 p-2 mb-4 rounded form" %>
+  <%= f.text_field :nickname, autofocus: true, placeholder: "例)アイスらぶ", maxlength: "8", class: "w-100 p-2 mb-4 rounded form" %>
   </div>
   <div class="foprm-grou">
   <%= f.label :email, "メールアドレス(必須)" %>
-  <%= f.email_field :email, autofocus: true, class: "w-100 p-2 mb-4 rounded form" %>
+  <%= f.email_field :email, autofocus: true, placeholder: "例)example@example.com", class: "w-100 p-2 mb-4 rounded form" %>
   </div>
   <div class="field">
   <%= f.label :password, "パスワード(6文字以上必須)" %>
-  <%= f.password_field :password, autocomplete: "new-password", class: "w-100 p-2 mb-4 rounded form" %>
+  <%= f.password_field :password, autocomplete: "new-password", placeholder: "例)password",class: "w-100 p-2 mb-4 rounded form" %>
   </div>
   <div class="field">
   <%= f.label :password, "確認用パスワード(6文字以上必須)"%>
-  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-100 p-2 mb-4 rounded form" %>
+  <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "例)password", class: "w-100 p-2 mb-4 rounded form" %>
   </div>     
   <div class="form-group">
   <%= f.label :description, "自己紹介(任意)"%>
-  <%= f.text_area :description, class: "form-control", class: "w-100 p-2 mb-4 rounded form"  %>
+  <%= f.text_area :description, class: "form-control", placeholder: "例)アイス大好きです。特に抹茶味のアイスが大好きです。", class: "w-100 p-2 rounded form"  %>
   </div>
   <div class="actions">
     <%= f.submit "登録", class: "btn btn-primary" %>
