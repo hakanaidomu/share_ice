@@ -1,6 +1,9 @@
 <div class="card col-sm-4 mx-auto text-center">
   <div class="card-body">
-    <h3 class="mt-1 mb-3">アカウント作成</h3>
+    <div class="foprm-grou m-4">
+      <%= link_to 'ゲストユーザーとしてログイン', users_guest_sign_in_path, method: :post, class: "btn btn-info" %>
+    </div>
+      <h3 class="mt-1 mb-3">アカウント作成</h3>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
@@ -25,8 +28,9 @@
   <%= f.text_area :description, class: "form-control", placeholder: "例)アイス大好きです。特に抹茶味のアイスが大好きです。", class: "w-100 p-2 rounded form"  %>
   </div>
   <div class="actions">
-    <%= f.submit "登録", class: "btn btn-primary" %>
+    <%= f.submit "登録", class: "btn btn-primary rounded form mb-4" %>
   </div>
+
 <% end %>
 
   </div>
