@@ -14,7 +14,9 @@
 <%= @user.description %>
       <div class="row">
           <%= render partial: "posts/post", collection: @posts %>
+          <%= paginate @posts %>
       </div>
-      <%= paginate @posts %>
+      
   </div>
+  
 </div>
