@@ -7,7 +7,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, 'Open Sans', sans-serif;
 }
 
-.jumbotron { 
+.jumbotron-1 { 
   background-image: url(images/background_image.jpg);
   background-size: cover;
   height: 100vh;
