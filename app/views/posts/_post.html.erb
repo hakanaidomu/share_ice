@@ -1,6 +1,6 @@
 <div class="col-lg-4 col-md-6 mb-4">
   <div class="card border-info h-100">
-    <div class="card-header">
+    <div class="card-header text-center badge ">
       <%= link_to "#{post.user.nickname}さんの投稿です", user_path(post.user, method: :get) %>
     </div>
     <div class="card-body border-bottom">
@@ -16,7 +16,7 @@
       <% if post.tag_list.any? %>
         <% post.tags.each do |tag| %>
           <%= link_to posts_path(tag: tag.name) do %>
-            <div class="badge badge badge-info "><%= "#{tag.name}(#{tag.taggings_count})" %></div>
+            <div class="badge badge badge-info"><%="#{tag.name}(#{tag.taggings_count})"%></div>
           <% end %>
         <% end %>
       <% end %>
