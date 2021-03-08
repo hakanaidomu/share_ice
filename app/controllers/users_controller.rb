@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.page(params[:page]).per(6)
     @total_price = @posts.all.sum(:price)
     @total_calorie = @posts.all.sum(:calorie)
+    @data = Post.all
   end
 
   private

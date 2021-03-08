@@ -108,6 +108,8 @@ GEM
       romaji
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.2)
+      activesupport (>= 5)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -310,6 +312,7 @@ DEPENDENCIES
   devise
   faker
   gimei
+  groupdate
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails

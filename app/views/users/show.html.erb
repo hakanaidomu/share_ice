@@ -9,11 +9,10 @@
             <%= image_tag "/assets/default_image.png", class: "round-img" %>
           <% end %>
     </div>
-    <div class="col-md-8">
+    <div class="col-aoto">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <%= area_chart @data.group_by_day(:created_at).sum(:price), xtitle: "使った金額", ytitle: "円",width: "600px", height: "200px" %>
+        <%= area_chart @data.group_by_day(:created_at).sum(:calorie), xtitle: "カロリー", ytitle: "kcal",width: "600px", height: "200px" %>
       </div>
     </div>
   </div>
