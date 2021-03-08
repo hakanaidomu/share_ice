@@ -18,9 +18,14 @@
   <%= f.text_area :description, class: "form-control", placeholder: "例)アイス大好きです。特に抹茶味のアイスが大好きです。", class: "w-100 p-2 rounded form"  %>
   </div>
   <div class="field form-label mb-4">
-  <%= f.label :プロフィール画像 %>
+  <%= f.label :プロフィール画像, class: "mb-4"%>
   <%= f.file_field :image, id: "preview" %>
   </div>
+  <% if @user.image.present? %>
+    <img src=<%= @user.image %> class = "icon_image mb-4">
+    <% else %>
+    <%= image_tag avatar_url(@user), class: "round-img mb-4" %>
+  <% end %>
   <div class="actions">
     <%= f.submit "編集する", class: "btn btn-primary rounded form mb-4" %>
   </div>
