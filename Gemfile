@@ -67,3 +67,4 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'rails-i18n'
 gem 'kaminari'
 gem 'groupdate'
+gem "chartkick"
