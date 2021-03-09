@@ -54,22 +54,10 @@
         <% end %>
       </div>
     </div>
-        
-      
-
-    
-
-      
-      
+   
   </div> 
   <div class="row">
-          <%= render partial: "posts/post", collection: @posts %>
-          
-      </div>
+    <%= render partial: "posts/post", collection: @posts %>
+  </div>
     <%= paginate @posts %>
 </div>
-
-    <h1><%= @user.nickname %></h1>
-<% if user_signed_in? && current_user.id == @user.id %>
-<%= link_to "プロフィールを編集", edit_user_registration_path %>
-<% end %>
