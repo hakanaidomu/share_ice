@@ -61,14 +61,16 @@
       </div>
   </nav>
 </header> 
-  <body>
-    <div class="jumbotron-1 ">
-  <%= yield %>
+<body>
+  <div class="jumbotron-1 ">
+    <div class="container">   
+      <%= yield %>
+    <%= render "devise/sessions/new" %>
     </div>
-<footer class="d-flex justify-content-center align-items-end bg-dark">
+  </div>
+    <footer class="d-flex justify-content-center align-items-end bg-dark">
 <div class="text-light">© 2021 share-ice!</div>
 </footer>
-<%= render "devise/sessions/new" %>
 </body>
 
 </html>
