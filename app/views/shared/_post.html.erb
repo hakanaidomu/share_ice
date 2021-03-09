@@ -1,4 +1,0 @@
-<%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype.id), method: :get %>
-<%= link_to prototype.title, prototype_path(prototype.id), method: :get, class: :card__title %>
-<%= prototype.catch_copy %>
-<%= link_to "by #{prototype.user.name}", user_path(prototype.user, method: :get, class: :card__user) %>

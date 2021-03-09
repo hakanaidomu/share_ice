@@ -10,9 +10,9 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_one_attached :image
 
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { maximum: 8 }
   validates :email, length: { maximum: 50 }, presence: true, uniqueness: true
-
+  validates :description, length: { maximum: 250 }
   mount_uploader :image, ImageUploader
 
   def self.guest

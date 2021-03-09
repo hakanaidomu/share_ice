@@ -13,6 +13,8 @@ require("channels")
 require('jquery')
 require("tagsinput")
 require('slick')
+require("chartkick") // 追記
+require("chart.js") // 追記
 
 //= require jquery3
 //= require popper

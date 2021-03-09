@@ -1,15 +1,63 @@
-<% if @user.image.present? %>
-<%= image_tag(@user.image.url) %>
-<% else %>
-<%= image_tag avatar_url(@user), class: "round-img" %>
-<% end %>
-<h1><%= @user.nickname %></h1>
-<% if user_signed_in? && current_user.id == @user.id %>
-<%= link_to "プロフィールを編集", edit_user_registration_path %>
-<% end %>
-<%= "#{@user.nickname}さんが今まで食べたアイスの合計金額は#{@total_price}円です" %>
-<%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
-<%= @user.description %>
-<%= render partial: "posts/post", collection: @posts %>
-<%= paginate @posts %>
+<div class="container py-4">
+  <div class="row">
+    <div class="card-columns">
+     
 
+      
+      <div class="card ">
+        <div class="card-header text-center">
+          <%= "直近1週間のデータ" %>
+        </div>
+        <div class="border-bottom">
+            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000 %>
+        </div>
+            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>    
+      </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <%= "直近1ヶ月のデータ" %>
+        </div>
+        <div class="border-bottom text-center">
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000%>
+        </div>
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>  
+      </div>
+
+     <div class="card">
+        <div class="card-header text-center">
+          <%= "#{@user.nickname}さんのプロフィール" %>
+        </div>
+        <div class="card-body text-center border-bottom">
+          <div class="card-title">
+            自己紹介文
+          </div>
+          <p class="card-text"><%="#{@user.description}"%></p>
+        </div>
+      <div class="border-bottom">
+        <% if @user.image.present? %>
+          <img src=<%= @user.image %> class = "d-block mx-auto icon_image">
+          <% else %>
+        <%= image_tag avatar_url(@user), class: "d-block mx-auto icon_image mx-auto" %>
+          <% end %>
+      </div>
+        <div class="card-text text-center border-bottom">
+          <%= "#{@user.nickname}さんが今まで食べたアイスの合計金額は#{@total_price}円です" %>
+        </div>
+
+        <div class="card-text text-center">
+          <%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
+        </div>
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <div class="card-footer text-center">
+            <%= link_to "プロフィールを編集", edit_user_registration_path, class:'btn btn-primary'%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+   
+  </div> 
+  <div class="row">
+    <%= render partial: "posts/post", collection: @posts %>
+  </div>
+    <%= paginate @posts %>
+</div>

@@ -1,47 +1,37 @@
-<div class="col-md-offset-2 mb-4 edit-profile-wrapper">
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <div class="profile-form-wrap">
-      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="containar py-4">
+<div class="card col-sm-4 mx-auto text-center">
+  <div class="card-body">
+      <h3 class="mt-1 mb-3">アカウント編集</h3>
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
   
-          <div class="form-group">
-            <%= f.label :nickname, "名前" %>
-            <%= f.text_field :nickname, autofocus: true, class: "form-control" %>
-          </div>
-
-          <div class="field form-label mb-4">
-          <%= f.label :プロフィール画像 %>
-          <%= f.file_field :image, id: "preview" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :description, "自己紹介"%>
-            <%= f.text_field :description, class: "form-control" %>
-            </div>
-          <div class="form-group">
-            <%= f.label :email, "メールアドレス" %>
-            <%= f.email_field :email, autofocus: true, class: "form-control" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :current_password, "現在のパスワード" %> 
-            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control"%>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password, "新しいパスワード" %>
-            <%= f.password_field :password, autofocus: "off", class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :password_confirmation, "新しいパスワードの確認" %>
-            <%= f.password_field :password_confirmation, autofocus: "off", class: "form-control" %>
-          </div>
-
-          <%= f.submit "変更する", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
+  <div class="foprm-grou">
+  <%= f.label :nickname, "ニックネーム(8文字以内必須)" %>
+  <%= f.text_field :nickname, autofocus: true, placeholder: "例)アイスらぶ", maxlength: "8", class: "w-100 p-2 mb-4 rounded form" %>
   </div>
+  <div class="foprm-grou">
+  <%= f.label :email, "メールアドレス(必須)" %>
+  <%= f.email_field :email, autofocus: true, placeholder: "例)example@example.com", class: "w-100 p-2 mb-4 rounded form" %>
+  </div>   
+  <div class="form-group">
+  <%= f.label :description, "自己紹介(任意150文字以内)"%>
+  <%= f.text_area :description, class: "form-control", placeholder: "例)アイス大好きです。特に抹茶味のアイスが大好きです。", class: "w-100 p-2 rounded form"  %>
+  </div>
+  <div class="field form-label mb-4">
+  <%= f.label :プロフィール画像, class: "mb-4"%>
+  <%= f.file_field :image, id: "preview" %>
+  </div>
+  <% if @user.image.present? %>
+    <img src=<%= @user.image %> class = "icon_image mb-4">
+    <% else %>
+    <%= image_tag avatar_url(@user), class: "round-img mb-4" %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit "編集する", class: "btn btn-primary rounded form mb-4" %>
+  </div>
+
+<% end %>
+
+  </div>
+</div>
 </div>
