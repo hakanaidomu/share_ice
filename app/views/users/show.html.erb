@@ -1,28 +1,24 @@
 <div class="container py-4">
   <div class="row">
-    <div class="card-columns">
+    <div class="card-columns mb-4">
+      <div class="card ">
+        <div class="card-header text-center">
+          <%= "直近1週間のデータ" %>
+        </div>
+          <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "アイスに使った金額", ytitle: "円", min: 0, max: 1000%>
+          <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:calorie), xtitle: "摂取カロリー", ytitle: "kcal", min: 0, max: 1000 %>
+
+      </div>
       <div class="card">
         <div class="card-header text-center">
-          <%= "#{@user.nickname}さんの直近1週間のデータ" %>
+          <%= "直近1ヶ月のデータ" %>
         </div>
-          <%= column_chart @data.group_by_day_of_week(:created_at, format: "%a").sum(:price), stacked: true, xtitle: "アイスに使った金額", ytitle: "円",width: "400px", height: "300px", min: 0, max: 1000%>
-          <%= column_chart @data.group_by_day_of_week(:created_at, format: "%a").sum(:calorie), xtitle: "摂取カロリー", ytitle: "kcal",width: "400px", height: "300px", min: 0, max: 1000 %>
-        </div>
-        <div class="card">
-          <h1><%= @user.nickname %></h1>
-<% if user_signed_in? && current_user.id == @user.id %>
-<%= link_to "プロフィールを編集", edit_user_registration_path %>
-<% end %>
-<%= "#{@user.nickname}さんが今まで食べたアイスの合計金額は#{@total_price}円です" %>
-<%= "#{@user.nickname}さんが今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
-<%= @user.description %>
-            <% if @user.image.present? %>
-    <img src=<%= @user.image %> class = "icon_image mb-4">
-    <% else %>
-    <%= image_tag avatar_url(@user), class: "round-img mb-4" %>
-  <% end %>
-  </div>
+          <%= column_chart @data.group_by_day_of_month(:created_at).sum(:price), xtitle: "アイスに使った金額", ytitle: "円", min: 0, max: 1000%>
+          <%= column_chart @data.group_by_day_of_month(:created_at).sum(:calorie), xtitle: "摂取カロリー", ytitle: "kcal", min: 0, max: 1000 %>
       </div>
+        
+        </div>
+      
  
     
 
