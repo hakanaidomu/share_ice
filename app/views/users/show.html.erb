@@ -13,8 +13,8 @@
         <div class="card-header text-center">
           <%= "直近1ヶ月のデータ" %>
         </div>
-          <%= column_chart @data.group_by_day_of_month(:created_at).sum(:price), xtitle: "アイスに使った金額", ytitle: "円", min: 0, max: 1000%>
-          <%= column_chart @data.group_by_day_of_month(:created_at).sum(:calorie), xtitle: "摂取カロリー", ytitle: "kcal", min: 0, max: 1000 %>
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額", ytitle: "円", min: 0, max: 1000%>
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー", ytitle: "kcal", min: 0, max: 1000 %>
       </div>
         
         </div>
