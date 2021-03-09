@@ -10,9 +10,9 @@
           <% end %>
     </div>
     <div class="col-aoto">
-      <div class="card-body">
-        <%= area_chart @data.group_by_day(:created_at).sum(:price), xtitle: "使った金額", ytitle: "円",width: "600px", height: "300px" %>
-        <%= area_chart @data.group_by_day(:created_at).sum(:calorie), xtitle: "カロリー", ytitle: "kcal",width: "600px", height: "300px" %>
+      <div class="card-body col-md-4">
+        <%= column_chart @data.group_by_day_of_week(:created_at, format: "%a").sum(:price), stacked: true, xtitle: "使った金額", ytitle: "円",width: "400px", height: "200px", min: 0, max: 1000%>
+        <%= column_chart @data.group_by_day_of_week(:created_at, format: "%a").sum(:calorie), xtitle: "カロリー", ytitle: "kcal",width: "400px", height: "200px", min: 0, max: 1000 %>
       </div>
     </div>
   </div>
