@@ -1,29 +1,7 @@
 <div class="container py-4">
   <div class="row">
     <div class="card-columns">
-     
-
-      
-      <div class="card ">
-        <div class="card-header text-center">
-          <%= "直近1週間のデータ" %>
-        </div>
-        <div class="border-bottom">
-            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000 %>
-        </div>
-            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>    
-      </div>
       <div class="card">
-        <div class="card-header text-center">
-          <%= "直近1ヶ月のデータ" %>
-        </div>
-        <div class="border-bottom text-center">
-          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000%>
-        </div>
-          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>  
-      </div>
-
-     <div class="card">
         <div class="card-header text-center">
           <%= "#{@user.nickname}さんのプロフィール" %>
         </div>
@@ -52,6 +30,26 @@
             <%= link_to "プロフィールを編集", edit_user_registration_path, class:'btn btn-primary'%>
           </div>
         <% end %>
+      </div>
+
+      
+      <div class="card ">
+        <div class="card-header text-center">
+          <%= "直近1週間のデータ" %>
+        </div>
+        <div class="border-bottom">
+            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000 %>
+        </div>
+            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>    
+      </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <%= "直近1ヶ月のデータ" %>
+        </div>
+        <div class="border-bottom text-center">
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000%>
+        </div>
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>  
       </div>
     </div>
    
