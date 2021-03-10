@@ -8,11 +8,8 @@
     <p class="card-text">
         <%= post.content %>
     </p>
-  
-  </div>
+    </div>
     <div class="card-footer text-center">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
       <% if post.tag_list.any? %>
         <% post.tags.each do |tag| %>
           <%= link_to posts_path(tag: tag.name) do %>
@@ -20,10 +17,11 @@
           <% end %>
         <% end %>
       <% end %>
-      <span><%= render 'likes/like', post: post %> </span>
-    </li>
-  </ul>
-      <a> <%= link_to "詳細ページへ", post_path(post.id), method: :get, class:'btn btn-primary' %></a>
+      <div>
+        <%= link_to "詳細ページへ", post_path(post.id), method: :get, class:'btn btn-primary m-3' %>
+        <span><%= render 'likes/like', post: post %> </span>
+      </div>
+        <span class="text-muted small"><%= post.created_at.to_s(:datetime_jp) %></span>
     </div> 
   </div>
 </div>
