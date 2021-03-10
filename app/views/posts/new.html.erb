@@ -55,8 +55,9 @@
       <p class="sentence">
       無関係な投稿や他者への誹謗中傷はご遠慮ください
       </p>
-
+    <div id="image-list"></div>
     <div class="post-btn-contents">
       <%= f.submit "投稿する" ,class:"post-btn" %>
     </div>
 <% end %>
+<%= image_tag @post.image, id: 'image', size: "150" if @post.image.present? %> 
