@@ -15,6 +15,10 @@ body {
   height: auto;
 }
 
+.post-image {
+  width: 200px;
+  height: 200px;
+}
 .icon_image {
   width: 200px;
   height: 200px;

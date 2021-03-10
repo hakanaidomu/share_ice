@@ -1,63 +1,47 @@
-<div class="posts-main">
-  <h1 class = "posts-post">食べたアイスの感想を投稿しちゃいますしょう！</h1>
-    <h3 class = "posts-description">金額とカロリーも入力すると日々のアイスの積み上げができますよ</h3>
+<div class="containar py-4">
+  <div class="card col-sm-4 mx-auto text-center">
+    <div class="card-body">
+      <h3 class="mt-1 mb-3">感想を投稿</h3>
+        <%= form_with(model: @post, local: true) do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
 
-    <%= form_with(model: @post, local: true) do |f| %>
-    
-    <%= render 'shared/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :content, "アイスの感想(必須150文字以内)"%>
+        <%= f.text_area :content, class:"content-text", placeholder: "例)抹茶味のアイスでした。濃厚でコクがあってとても美味しかったです。でもちょっと高かったかな？(T ^ T)", class: "w-100 p-2 rounded form"  %>
+      </div>
 
-    <%# アイス画像 %>
-    <div claa="card-img-top">
-      <div class="card-img-top">
-        アイスの画像
+      <div class="form-group">
+        <%= f.label :price, "アイスの値段(任意半角数字)"%>
+        <%= f.text_field :price, class:"price-text", maxlength: "4",placeholder: "例)150", class: "w-100 p-2 rounded form" %>
       </div>
-      <div class="card-img-top">
-        <p>
-          クリックをしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"post-image" %>
-      </div>
-    </div> 
-    <%# アイス画像 %>
-    <%# アイスの感想 %>
-    <div class="weight-bold-text">
-      アイスの感想
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :content, class:"content-text", placeholder:"アイスの感想(必須 140文字まで) 例）あいらぶ抹茶アイス！" ,rows:"7" ,maxlength:"140" %>
-    </div>
-    <%# アイスの感想 %>
-    <%# アイスの値段 %>
-    <div class="price-text">
-      <div class="weight-bold-text">
-      アイスの値段はいくらくらいでしたか？
-      </div>
-      <%= f.text_field :price, class:"price-input", id:"post-price", placeholder:"例）150" %>
-    </div>
-    <%# アイスの値段 %>
-    <%# アイスのカロリー%>
-    <div class="calorie-text">
-      <div class="weight-bold-text">
-      アイスのカロリーはどのくらいでしたか？
-        </div>
-          <%= f.text_field :calorie, class:"calorie-input", id:"post-calorie", placeholder:"例) 200"%>
-        <div>
-      </div>
-    </div> 
-        <div class="tags">
-          <%= f.label :tag_list %>
-          <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"} %>
-        </div>
-   
     
-    <%# 注意書き %>
+      <div class="form-group">
+        <%= f.label :calorie, "アイスのカロリー(任意半角数字)"%>
+        <%= f.text_field :calorie, class:"calorie-text", maxlength: "4",placeholder: "例)300", class: "w-100 p-2 rounded form" %>
+      </div>
+
+      <div class="tags">
+        <%= f.label :tag_list, ",かエンターキーでタグ付けができます(タグは最大8文字,5個まで)" %>
+        <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶,バニラ,濃厚"%>
+      </div>
+
+       <div class="m-3">
+          <%= f.label :image, "アイスの写真(必須)"%><br>
+          <%= f.file_field :image, id:"post-image" %>
+        <%= image_tag @post.image, id: 'post-image', size: "150" if @post.image.present? %> 
+       </div>
     <div class="caution">
       <p class="sentence">
       無関係な投稿や他者への誹謗中傷はご遠慮ください
       </p>
+    </div>
     <div id="image-list"></div>
     <div class="post-btn-contents">
-      <%= f.submit "投稿する" ,class:"post-btn" %>
+      <%= f.submit "投稿する" ,class: "btn btn-primary rounded form mb-4" %>
     </div>
-<% end %>
-<%= image_tag @post.image, id: 'image', size: "150" if @post.image.present? %> 
+    <% end %>
+  </div>
+  </div>
+</div>
+
+
