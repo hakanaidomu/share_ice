@@ -1,5 +1,5 @@
 <div class="containar py-4">
-  <div class="card col-sm-4 mx-auto text-center">
+  <div class="card col-sm-5 mx-auto  text-center">
     <div class="card-body">
       <h3 class="mt-1 mb-3">感想を投稿</h3>
         <%= form_with(model: @post, local: true) do |f| %>
@@ -25,15 +25,13 @@
         <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶,バニラ,濃厚"%>
       </div>
 
-       <div class="m-3">
+      <div class="m-3">
           <%= f.label :image, "アイスの写真(必須)"%><br>
           <%= f.file_field :image, id:"post-image" %>
         <%= image_tag @post.image, id: 'post-image' if @post.image.present? %> 
-       </div>
+      </div>
     <div class="caution">
-      <p class="sentence">
       無関係な投稿や他者への誹謗中傷はご遠慮ください
-      </p>
     </div>
     <div id="image-list"></div>
     <div class="post-btn-contents">
