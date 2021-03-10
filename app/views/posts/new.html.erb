@@ -7,7 +7,7 @@
 
       <div class="form-group">
         <%= f.label :content, "アイスの感想(必須150文字以内)"%>
-        <%= f.text_area :content, class:"content-text", placeholder: "例)抹茶味のアイスでした。濃厚でコクがあってとても美味しかったです。でもちょっと高かったかな？(T ^ T)", class: "w-100 p-2 rounded form"  %>
+        <%= f.text_area :content, class:"content-text", maxlength: "150",placeholder: "例)抹茶味のアイスでした。濃厚でコクがあってとても美味しかったです。でもちょっと高かったかな？(T ^ T)", class: "w-100 p-2 rounded form"  %>
       </div>
 
       <div class="form-group">
@@ -28,7 +28,7 @@
        <div class="m-3">
           <%= f.label :image, "アイスの写真(必須)"%><br>
           <%= f.file_field :image, id:"post-image" %>
-        <%= image_tag @post.image, id: 'post-image', size: "150" if @post.image.present? %> 
+        <%= image_tag @post.image, id: 'post-image' if @post.image.present? %> 
        </div>
     <div class="caution">
       <p class="sentence">
