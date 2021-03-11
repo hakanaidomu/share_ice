@@ -22,8 +22,8 @@
   <%= f.file_field :image, id: "preview" %>
   </div>
   <% if @user.image.present? %>
-    <img src=<%= @user.image %> class = "icon_image mb-4">
-    <% else %>
+    <%= image_tag @user.image, class:"d-block mx-auto icon_image" %>
+  <% else %>
     <%= image_tag avatar_url(@user), class: "round-img mb-4" %>
   <% end %>
   <div class="actions">

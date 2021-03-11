@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 8 }
   validates :email, length: { maximum: 50 }, presence: true, uniqueness: true
   validates :description, length: { maximum: 150 }
-  mount_uploader :image, ImageUploader
+  
 
   
   def self.guest

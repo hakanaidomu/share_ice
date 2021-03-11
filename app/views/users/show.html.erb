@@ -13,7 +13,7 @@
         </div>
       <div class="border-bottom">
         <% if @user.image.present? %>
-          <img src=<%= @user.image %> class = "d-block mx-auto icon_image">
+        <%= image_tag @user.image, class:"d-block mx-auto icon_image" %>
           <% else %>
         <%= image_tag avatar_url(@user), class: "d-block mx-auto icon_image mx-auto" %>
           <% end %>
