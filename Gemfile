@@ -67,3 +67,4 @@ gem 'rails-i18n'
 gem 'kaminari'
 gem 'groupdate'
 gem "chartkick"
+gem 'carrierwave', '~> 2.0'
