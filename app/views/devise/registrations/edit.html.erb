@@ -22,9 +22,9 @@
   <%= f.file_field :image, id: "preview" %>
   </div>
   <% if @user.image.present? %>
-    <%= image_tag @user.image, class:"d-block mx-auto icon_image" %>
+    <%= image_tag @user.image, class:"d-block mx-auto icon_image mb-4" %>
   <% else %>
-    <%= image_tag avatar_url(@user), class: "round-img mb-4" %>
+    <%= image_tag "default_image.jpg", class: "round-img mb-4" %>
   <% end %>
   <div class="actions">
     <%= f.submit "編集する", class: "btn btn-primary rounded form mb-4" %>

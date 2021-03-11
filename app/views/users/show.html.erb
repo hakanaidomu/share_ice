@@ -15,7 +15,7 @@
         <% if @user.image.present? %>
         <%= image_tag @user.image, class:"d-block mx-auto icon_image" %>
           <% else %>
-        <%= image_tag avatar_url(@user), class: "d-block mx-auto icon_image mx-auto" %>
+        <%= image_tag "default_image.jpg", class: "d-block mx-auto icon_image mx-auto" %>
           <% end %>
       </div>
         <div class="card-text text-center border-bottom">
