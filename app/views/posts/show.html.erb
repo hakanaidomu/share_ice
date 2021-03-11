@@ -20,7 +20,7 @@
         アイスの感想:<%= @post.content %>
       </div>
       <div class="border-bottom">
-      <% if @post.tag_list.any? %>
+        タグ:<% if @post.tag_list.any? %>
         <% @post.tags.each do |tag| %>
           <%= link_to posts_path(tag: tag.name) do %>
             <div class="badge badge badge-info"><%="#{tag.name}(#{tag.taggings_count})"%></div>
