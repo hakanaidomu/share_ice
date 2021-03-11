@@ -1,16 +1,16 @@
-<div class="like-link" id="like-link-<%= post.id %>">
+<span class="like-link" id="like-link-<%= post.id %>">
 <% if user_signed_in? %>
   <% if current_user.likes.find_by(post_id: post.id) %>
     <%= link_to unlike_path(post.id), method: :delete, remote: true do %>
-        <div class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></div>
+        <span class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></span>
     <% end %>
   <% else %>
     <%= link_to like_path(post.id), method: :post, remote: true do %>
-        <div class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></div>
+        <span class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></span>
     <% end %>
   <% end %>
 <% else %>
-    <div class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></div>
+    <span class = "iine__button"><i class="fas fa-heart"></i><%= post.likes.count %></span>
 <% end %>
-</div> 
+</span> 
 

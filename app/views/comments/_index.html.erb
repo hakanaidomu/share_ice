@@ -1,9 +1,11 @@
+
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <p><%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %></p>
-    <p>コメント：<%= comment.content %></p>
+  <div class="border-top">
+    <%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %>：<%= comment.content %>：<%= comment.created_at.to_s(:datetime_jp) %>
     <% if comment.user == current_user %>
-      <p><%= link_to 'コメントを削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %></p>
+    ：<%= link_to '削除', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %>
     <% end %>
   <% end %>
+  </div>
 <% end %>

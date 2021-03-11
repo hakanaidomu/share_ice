@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_one_attached :image
   validates :content, presence: true, length: { maximum: 150 }
   validates :image, presence: true
-  validates :price, numericality: { less_than_or_equal_to: 9_999 }
-  validates :calorie, numericality: { less_than_or_equal_to: 9_999 }
+  validates :price, numericality: { less_than_or_equal_to: 999 }, allow_blank: true
+  validates :calorie, numericality: { less_than_or_equal_to: 999 }, allow_blank: true
   acts_as_taggable
 end

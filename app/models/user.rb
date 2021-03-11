@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :description, length: { maximum: 150 }
   mount_uploader :image, ImageUploader
 
+  
   def self.guest
     find_or_create_by!(nickname: 'ゲストユーザー', email: 'guest@example.com', description: 'こんにちわゲストユーザーさん！ゲストユーザーのため編集はできません。') do |user|
       user.password = SecureRandom.urlsafe_base64
