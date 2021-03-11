@@ -38,7 +38,7 @@
       </div>
 
       <div class="text-center">
-        <h4>コメント</h4>
+        <div class="h4">コメント</div>
         <% if user_signed_in? %>
           <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
           <% end %>

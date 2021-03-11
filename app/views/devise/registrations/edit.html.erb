@@ -1,7 +1,7 @@
 <div class="containar py-4">
 <div class="card col-sm-4 mx-auto text-center">
   <div class="card-body">
-      <h3 class="mt-1 mb-3">アカウント編集</h3>
+      <div class="h3 mt-1 mb-3">アカウント編集</div>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
