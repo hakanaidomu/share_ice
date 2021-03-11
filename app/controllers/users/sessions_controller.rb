@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def failed
-    flash[:alert] = "メールアドレスまたはパスワードが違います。"
+    flash[:alert] = 'メールアドレスまたはパスワードが違います。'
     redirect_to params[:user][:url]
   end
 
@@ -22,8 +22,6 @@ class Users::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
-
-
 
   # GET /resource/sign_in
   # def new

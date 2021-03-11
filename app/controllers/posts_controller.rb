@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
-  
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :redirect, only: [:edit, :update, :destroy]
-  
+
   def index
-      @randams = Post.order("RAND()").limit(10)
-      @tags = Post.tag_counts_on(:tags).most_used(20)
+    @randams = Post.order('RAND()').limit(10)
+    @tags = Post.tag_counts_on(:tags).most_used(20)
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).page(params[:page]).per(6)
-      @randams = Post.tagged_with(params[:tag]).order("RAND()").limit(5)
+      @randams = Post.tagged_with(params[:tag]).order('RAND()').limit(5)
     else
       @posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
     end
@@ -50,7 +49,8 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  private 
+  private
+
   def post_params
     params.require(:post).permit(:image, :content, :calorie, :price, :tag_list).merge(user_id: current_user.id)
   end
@@ -62,5 +62,4 @@ class PostsController < ApplicationController
   def redirect
     redirect_to root_path if @post.user_id != current_user.id
   end
-  
 end
