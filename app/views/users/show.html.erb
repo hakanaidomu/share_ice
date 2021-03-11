@@ -1,6 +1,6 @@
 <div class="container py-4">
   <div class="row">
-    <div class="card-columns">
+    <div class="card-columns col-lg-12">
       <div class="card">
         <div class="card-header text-center">
           <%= "#{@user.nickname}さんのプロフィール" %>
@@ -19,16 +19,20 @@
           <% end %>
       </div>
         <div class="card-text text-center border-bottom">
-          <%= "今週食べたアイスの合計金額は#{@week_price}円です" %>
+          <%= "今週の合計金額" %>
+          <span class="font-weight-bold"><%= "#{@week_price}円" %></span><br>
         </div>
         <div class="card-text text-center border-bottom">
-          <%= "今まで食べたアイスの合計金額は#{@total_price}円です" %>
+          <%= "今まで食べたアイスの合計金額" %>
+          <span class="font-weight-bold"><%= "#{@total_price}円" %></span><br>
         </div>
         <div class="card-text text-center border-bottom">
-          <%= "今週食べたアイスの合計カロリーは#{@week_calorie}kcalです"%>
+          <%= "今週の摂取カロリー" %>
+          <span class="font-weight-bold"><%= "#{@week_calorie}kcal"%></span><br>
         </div>
         <div class="card-text text-center">
-          <%= "今まで食べたアイスの合計カロリーは#{@total_calorie}kcalです"%>
+          <%= "今まで食べたアイスの摂取カロリー"%>
+          <span class="font-weight-bold"><%= "#{@total_calorie}kcal"%></span><br>
         </div>
         <% if user_signed_in? && current_user.id == @user.id %>
           <div class="card-footer text-center">
