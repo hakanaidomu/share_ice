@@ -26,6 +26,12 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <%# <div class="searchbox">
+            <%= search_form_for @search, url: posts_path do |f| %>
+            <%# <%= f.text_field :content_cont ,placeholder: '投稿の検索ができます...' %>
+            <%# <%= f.submit ("検索") , class: 'search-btn'%>
+          <%# <% end %>
+      <%# </div> %>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -35,6 +41,7 @@
           <li class="nav-item">
             <%= link_to 'トップページ', root_path, class: "nav-link btn btn-sm btn-outline-secondary" %>
           </li>
+          
           <li class="nav-item">
             <% if user_signed_in? %>
             <li class="nav-item">
