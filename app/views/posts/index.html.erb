@@ -20,7 +20,13 @@
         </div>
 
         <div class="row">
-          <%= render partial: "post", collection: @posts %>
+        
+        <%# <% if @search_posts %>
+          <%# <%= render partial: 'posts/post', collection: @search_posts %>
+        <%# <% else %>
+          <%= render partial: 'posts/post', collection: @posts %>
+        <%# <% end %> %>
+  
         </div>
         <%= paginate @posts %>
       </div>

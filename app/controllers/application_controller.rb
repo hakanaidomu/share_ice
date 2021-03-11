@@ -10,8 +10,8 @@ private
     devise_parameter_sanitizer.permit(:account_update, keys: [:description, :nickname, :image])
   end
 
-  def set_search
-    @search = Post.ransack(params[:q])
-    @search_posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
-  end
+  # def set_search
+  #   @search = Post.ransack(params[:q])
+  #   @search_posts = @search.result.order(created_at: :desc).page(params[:page]).per(10)
+  # end
 end
