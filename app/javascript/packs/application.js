@@ -16,6 +16,7 @@ require('slick')
 require("chartkick")
 require("chart.js")
 require('../preview')
+require("set_timeout")
 
 //= require jquery3
 //= require popper

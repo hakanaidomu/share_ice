@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
-      <h1 class="my-4 text-center alert alert-info rounded-circle font-italic ">人気タグ</h1>
+      <h1 class="my-4 text-center badge-success badge-pill">人気タグ</h1>
         <div class="list-group text-center text-break">
             <% @tags.each do |tag|%>
               <%= link_to posts_path(tag: tag.name) do%>
