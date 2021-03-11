@@ -61,7 +61,6 @@
           <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>  
       </div>
     </div>
-   
   </div> 
   <div class="row">
     <%= render partial: "posts/post", collection: @posts %>
