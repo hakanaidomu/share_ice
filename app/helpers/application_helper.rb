@@ -5,6 +5,17 @@ module ApplicationHelper
     "https://techpit-market-prod.s3.amazonaws.com/uploads/part_attachment/file/15782/2da91636-af73-4eed-91cd-320a0399609c.jpg"
   end
 
+  def bootstrap_alert(key)
+    case key
+    when "alert"
+      "warning"
+    when "notice"
+      "success"
+    when "error"
+      "danger"
+    end
+  end
+  
   def resource_name
     :user
   end
