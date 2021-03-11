@@ -1,7 +1,7 @@
 <%= form_with(model: [post, comment], url: post_comments_path(@post) ) do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
     <div>
-    <%= f.text_area :content, maxlength: "30",placeholder: "30文字まででコメントがつけれます"%>
+        <%= f.text_area :content, maxlength: "30",placeholder: "30文字まででコメントがおくれます"%>
     </div>
-    <%= f.submit "送信", class: "btn btn-info" %>
+        <%= f.submit "送信", class: "btn btn-info" %>
 <% end %>

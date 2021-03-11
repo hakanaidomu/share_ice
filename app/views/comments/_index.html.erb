@@ -2,9 +2,9 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
   <div class="border-top">
-    <%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %>：<%= comment.content %><%= comment.created_at.to_s(:datetime_jp) %>
+    <%= link_to "#{comment.user.nickname}さん", user_path(comment.user.id) %>：<%= comment.content %>：<%= comment.created_at.to_s(:datetime_jp) %>
     <% if comment.user == current_user %>
-    <%= link_to '削除', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %>
+    ：<%= link_to '削除', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %>
     <% end %>
   <% end %>
   </div>
