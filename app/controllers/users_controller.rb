@@ -7,10 +7,8 @@ class UsersController < ApplicationController
     @total_posts = @user.posts
     @total_price = @total_posts.all.sum(:price)
     @total_calorie = @total_posts.all.sum(:calorie)
-    from  = 1.week.ago.at_beginning_of_day
+    from  = 6.day.ago.at_beginning_of_day
     to    = (from + 6.day).at_end_of_day
-    
-    
     @week_post = @user.posts.where(created_at: from...to)
     @week_price = @week_post.all.sum(:price)
     @week_calorie = @week_post.all.sum(:calorie)
