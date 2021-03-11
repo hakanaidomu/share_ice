@@ -39,12 +39,13 @@
 
       <div class="text-center">
         <h4>コメント</h4>
+        <% if user_signed_in? %>
+          <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+          <% end %>
         <div id="comments_area">
           <%= render partial: 'comments/index', locals: { comments: @comments } %>
         </div>  
-          <% if user_signed_in? %>
-          <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
-          <% end %>
+          
       </div>
     </div>
   </div>
