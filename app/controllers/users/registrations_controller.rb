@@ -13,15 +13,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if current_user.update(user_params)
       redirect_to root_path, notice: 'ユーザー情報を更新しました'
     else
-      flash.now[:alert] = "入力内容をご確認ください"
+      flash.now[:alert] = '入力内容をご確認ください'
       render :edit
     end
   end
 
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーはユーザー情報を編集できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーはユーザー情報を編集できません。' if resource.email == 'guest@example.com'
   end
 
   private

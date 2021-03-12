@@ -20,5 +20,4 @@ class UsersController < ApplicationController
   def redirect
     redirect_to root_path if @user_id != current_user.id
   end
-
 end
