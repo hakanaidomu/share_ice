@@ -36,7 +36,12 @@ RSpec.describe Post, type: :model do
           @post.valid?
           expect(@post.errors.full_messages).to include('アイスの感想を入力してください')
         end
-
+        
+        it 'imageが空では登録できない' do
+          @post.image = nil
+          @post.valid?
+          expect(@post.errors.full_messages).to include('画像を入力してください')
+        end
         it 'contentが151文字以上では登録できない' do
           @post.content = 'a' * 151
           @post.valid?
