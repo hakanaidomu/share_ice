@@ -27,7 +27,9 @@
           <% end %>
         <% end %>
       <% end %>
-      <%= render 'likes/like', post: @post %>
+      </div>
+       <div class="border-bottom">
+        いいねをつけよう:<%= render 'likes/like', post: @post %>
       </div>
         <div>
         <% if user_signed_in? && current_user.id == @post.user_id %>
