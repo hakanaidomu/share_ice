@@ -14,7 +14,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def failed
     flash[:alert] = 'メールアドレスまたはパスワードが違います。'
-    redirect_to params[:user][:url]
+    redirect_to root_path
   end
 
   def new_guest

@@ -81,7 +81,19 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('自己紹介文は150文字以内で入力してください')
       end
+
+      describe 'パスワードの検証' do
+        it 'パスワードと確認用パスワードが間違っている場合、無効であること' do
+          @user.password = 'password'
+          @user.password_confirmation = 'pass'
+          @user.valid?
+          expect(@user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+        end
+
+        it 'パスワードが暗号化されていること' do
+          expect(@user.encrypted_password).to_not eq 'password'
+        end
+      end
     end
   end
-
 end
