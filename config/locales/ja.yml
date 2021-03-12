@@ -15,5 +15,8 @@ ja:
        image: 画像
        price: 値段
        calorie: カロリー
+     comment:
+      content: コメント
+
        
        
