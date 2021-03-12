@@ -13,5 +13,7 @@ ja:
      post:
        content: アイスの感想
        image: 画像
+       price: 値段
+       calorie: カロリー
        
        

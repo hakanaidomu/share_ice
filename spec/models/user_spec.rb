@@ -63,8 +63,8 @@ RSpec.describe User, type: :model do
       end
       
       it 'passwordが5文字以下であれば登録できない' do
-        @user.password = 'aaabb'
-        @user.password_confirmation = 'aaabb'
+        @user.password = 'a' * 5
+        @user.password_confirmation = 'b' * 5
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードは6文字以上で入力してください')
       end
@@ -83,4 +83,5 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
 end
