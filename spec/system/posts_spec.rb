@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe '新規投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @post = FactoryBot.build(:post)
+    @post = FactoryBot.create(:post)
   end
 
   context '新規投稿ができるとき' do
@@ -45,6 +45,47 @@ RSpec.describe '新規投稿', type: :system do
     end
   end
 end
+
+RSpec.describe '投稿内容の詳細', type: :system do
+  before do
+    @post = FactoryBot.create(:post)
+  end
+  
+  context '投稿内容が正しく表示されるとき' do
+    it  '正しく内容が表示されること' do
+      visit root_path
+      visit post_path(@post)
+      expect(page).to have_content(@post.content)
+      expect(page).to have_content(@post.price)
+      expect(page).to have_content(@post.calorie)
+    end
+    it  'ログインしたユーザーと投稿したユーザーが同じとき編集ボタンと削除ボタンが表示される' do
+      visit root_path
+      sign_in(@post.user)
+      visit post_path(@post)
+      expect(page).to have_link '削除', href: post_path(@post)
+      expect(page).to have_link '編集', href: edit_post_path(@post)
+    end
+    it  'ログインしていないユーザーには編集ボタンと削除ボタンが表示されない' do
+      visit root_path
+      visit post_path(@post)
+      expect(page).to have_no_link '削除', href: post_path(@post)
+      expect(page).to have_no_link '編集', href: edit_post_path(@post)
+    end
+    it 'ログインしているユーザーにはコメント投稿フォームが表示される' do
+      visit root_path
+      sign_in(@post.user)
+      visit post_path(@post)
+      expect(page).to have_selector 'form'
+    end
+    it 'ログインしていないユーザーにはコメント投稿フォームが表示されない' do
+      visit root_path
+      visit post_path(@post)
+      expect(page).to have_no_selector 'form'
+    end
+  end
+end
+
 
 RSpec.describe '投稿内容の編集', type: :system do
   before do
@@ -107,3 +148,4 @@ RSpec.describe '投稿内容の削除', type: :system do
     end
   end
 end
+

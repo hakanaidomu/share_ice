@@ -13,18 +13,14 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       expect(page).to have_link 'ログイン', href: new_user_session_path
       expect(page).to have_link '新規登録', href: new_user_registration_path
       expect(page).to have_link 'かんたんログイン', href: users_guest_sign_in_path
-
       visit new_user_registration_path
-
       fill_in 'user_nickname', with: @user.nickname
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       fill_in 'user_password_confirmation', with: @user.password_confirmation
-
       expect  do
         find('input[name="commit"]').click
       end.to change { User.count }.by(1)
-
       expect(current_path).to eq root_path
       expect(page).to have_link 'シェアあいす!', href: root_path
       expect(page).to have_link 'トップページ', href: root_path
@@ -66,7 +62,6 @@ RSpec.describe 'ログイン', type: :system do
       expect(page).to have_no_link '新規登録', href: new_user_registration_path
     end
   end
-
   context 'ログインができないとき' do
     it '保存されているユーザーの情報と合致しないとログインができない' do
       visit root_path
