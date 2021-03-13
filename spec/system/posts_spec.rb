@@ -48,14 +48,62 @@ end
 
 RSpec.describe '投稿内容の編集', type: :system do
   before do
-    @post = FactoryBot.create(:post)
+    @post1 = FactoryBot.create(:post)
+    @post2 = FactoryBot.create(:post)
   end
   context '投稿内容が編集できるとき' do
-    it 'ログインしたユーザーは、自分が投稿した投稿内容を編集ができる' do
-      sign_in(@post.user)
-      first(:link, '詳細ページへ').click
-      first(:link, '編集').click
-      expect(current_path).to eq edit_post_path(@post)
+    it 'ログインしたユーザーは自分が投稿した投稿ページの編集ができる' do
+      sign_in(@post1.user)
+      visit post_path(@post1)
+      find_link('編集').click
+      expect(current_path).to eq edit_post_path(@post1)
+      fill_in 'post_content' ,with: "編集しました"
+      click_button '編集する'
+      expect(current_path).to eq root_path
+      expect(page).to have_content("編集しました")
+    end
+  end
+
+  context '投稿内容が編集できないとき' do
+    it 'ログインしたユーザーは、自分以外が投稿した投稿の編集画面には遷移できない' do
+      sign_in(@post1.user)
+      visit post_path(@post2)
+      expect(current_path).to eq post_path(@post2)
+      expect(page).to have_no_link '編集',href: edit_post_path(@post2)
+    end
+    it 'ログインしていないと、投稿の編集画面には遷移できない' do
+      visit root_path
+      visit post_path(@post1)
+      expect(page).to have_no_link '編集', href: edit_post_path(@post1)
+    end
+  end
+end
+
+RSpec.describe '投稿内容の削除', type: :system do
+  before do
+    @post1 = FactoryBot.create(:post)
+    @post2 = FactoryBot.create(:post)
+  end
+
+  context '投稿の削除ができるとき' do
+    it 'ユーザーは、自分の投稿を削除できる' do
+      sign_in(@post1.user)
+      visit post_path(@post1)
+      find_link('削除').click
+      expect(current_path).to eq root_path
+      expect(page).to have_no_content(@post1.content)
+    end
+
+    it '他のユーザーの投稿は削除できない' do
+      sign_in(@post1.user)
+      visit post_path(@post2)
+      expect(page).to have_no_link '削除', href: post_path(@post2)
+    end
+
+    it 'ログインしていないと削除できない' do
+      visit root_path
+      visit post_path(@post1)
+      expect(page).to have_no_link '削除', href: post_path(@post2)
     end
   end
 end
