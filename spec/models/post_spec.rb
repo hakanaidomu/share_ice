@@ -4,7 +4,6 @@ RSpec.describe Post, type: :model do
   describe '新規投稿' do
     before do
       @post = FactoryBot.build(:post)
-      @post.image = fixture_file_upload('app/assets/images/default_image.jpg')
       @post.tag_list = ['抹茶','バニラ','チョコ']
     end
 
@@ -12,24 +11,20 @@ RSpec.describe Post, type: :model do
       context '新規投稿がうまくいく時' do
         it 'content,imageがあれば新規投稿ができる' do
           expect(@post).to be_valid
-          expect(@post.image).to be_valid
         end
         it 'priceが空でも登録できる' do
           @post.price = nil
           expect(@post).to be_valid
         end
-
         it 'calorieが空でも登録できる' do
           @post.calorie = nil
           expect(@post).to be_valid
         end
-
         it 'tag_listが空でも登録できる' do
           @post.tag_list = nil
           expect(@post).to be_valid
         end
       end
-
       describe '新規投稿がうまく行かないとき' do
         it 'contentが空では登録できない' do
           @post.content = nil

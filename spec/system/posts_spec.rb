@@ -5,7 +5,6 @@ RSpec.describe '新規投稿', type: :system do
     @user = FactoryBot.create(:user)
     @post = FactoryBot.create(:post)
   end
-
   context '新規投稿ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       sign_in(@user)
@@ -18,13 +17,11 @@ RSpec.describe '新規投稿', type: :system do
       expect(page).to have_content(@post.content)
     end
   end
-
   context '新規投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       visit root_path
       expect(page).to have_no_content('新規投稿')
     end
-
     it 'contentが空だと投稿できない' do
       sign_in(@user)
       first(:link, '新規投稿').click
@@ -34,7 +31,6 @@ RSpec.describe '新規投稿', type: :system do
       click_button '投稿する'
       expect(current_path).to eq '/posts'
     end
-
     it 'imageが空だと投稿できない' do
       sign_in(@user)
       first(:link, '新規投稿').click
@@ -49,8 +45,7 @@ end
 RSpec.describe '投稿内容の詳細', type: :system do
   before do
     @post = FactoryBot.create(:post)
-  end
-  
+  end  
   context '投稿内容が正しく表示されるとき' do
     it  '正しく内容が表示されること' do
       visit root_path
@@ -86,7 +81,6 @@ RSpec.describe '投稿内容の詳細', type: :system do
   end
 end
 
-
 RSpec.describe '投稿内容の編集', type: :system do
   before do
     @post1 = FactoryBot.create(:post)
@@ -104,7 +98,6 @@ RSpec.describe '投稿内容の編集', type: :system do
       expect(page).to have_content("編集しました")
     end
   end
-
   context '投稿内容が編集できないとき' do
     it 'ログインしたユーザーは、自分以外が投稿した投稿の編集画面には遷移できない' do
       sign_in(@post1.user)
@@ -125,7 +118,6 @@ RSpec.describe '投稿内容の削除', type: :system do
     @post1 = FactoryBot.create(:post)
     @post2 = FactoryBot.create(:post)
   end
-
   context '投稿の削除ができるとき' do
     it 'ユーザーは、自分の投稿を削除できる' do
       sign_in(@post1.user)
@@ -134,13 +126,11 @@ RSpec.describe '投稿内容の削除', type: :system do
       expect(current_path).to eq root_path
       expect(page).to have_no_content(@post1.content)
     end
-
     it '他のユーザーの投稿は削除できない' do
       sign_in(@post1.user)
       visit post_path(@post2)
       expect(page).to have_no_link '削除', href: post_path(@post2)
     end
-
     it 'ログインしていないと削除できない' do
       visit root_path
       visit post_path(@post1)
