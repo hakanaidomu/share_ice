@@ -47,11 +47,19 @@ RSpec.describe '投稿内容の詳細', type: :system do
     @post = FactoryBot.create(:post)
   end
   context '投稿内容が正しく表示されるとき' do
-    it '正しく内容が表示される' do
+    it 'contentが表示される' do
       visit root_path
       visit post_path(@post)
       expect(page).to have_content(@post.content)
+    end
+    it 'priceが表示される' do
+      visit root_path
+      visit post_path(@post)
       expect(page).to have_content(@post.price)
+    end
+    it 'calorieが表示される' do
+      visit root_path
+      visit post_path(@post)
       expect(page).to have_content(@post.calorie)
     end
     it 'ログインしたユーザーと投稿したユーザーが同じとき編集ボタンと削除ボタンが表示される' do
@@ -126,6 +134,8 @@ RSpec.describe '投稿内容の削除', type: :system do
       expect(current_path).to eq root_path
       expect(page).to have_no_content(@post1.content)
     end
+  end
+  context '投稿の削除ができないとき' do
     it '他のユーザーの投稿は削除できない' do
       sign_in(@post1.user)
       visit post_path(@post2)
