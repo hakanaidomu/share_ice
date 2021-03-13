@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
         @user.email = 'aaabbb'
         @user.valid?
         expect(@user.errors.full_messages).to include('Eメールは不正な値です')
-      end     
+      end
       it 'passwordが空では登録できない' do
         @user.password = nil
         @user.valid?
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = ''
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
-      end     
+      end
       it 'passwordが5文字以下であれば登録できない' do
         @user.password = 'a' * 5
         @user.password_confirmation = 'b' * 5
@@ -75,7 +75,7 @@ RSpec.describe User, type: :model do
           @user.password = 'password'
           @user.password_confirmation = 'pass'
           @user.valid?
-          expect(@user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+          expect(@user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
         end
         it 'パスワードが暗号化されていること' do
           expect(@user.encrypted_password).to_not eq 'password'

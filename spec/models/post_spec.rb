@@ -4,7 +4,7 @@ RSpec.describe Post, type: :model do
   describe '新規投稿' do
     before do
       @post = FactoryBot.build(:post)
-      @post.tag_list = ['抹茶','バニラ','チョコ']
+      @post.tag_list = %w[抹茶 バニラ チョコ]
     end
 
     describe '新規投稿' do
@@ -31,7 +31,7 @@ RSpec.describe Post, type: :model do
           @post.valid?
           expect(@post.errors.full_messages).to include('アイスの感想を入力してください')
         end
-        
+
         it 'imageが空では登録できない' do
           @post.image = nil
           @post.valid?
