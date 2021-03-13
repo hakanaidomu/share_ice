@@ -71,3 +71,4 @@ gem 'kaminari'
 gem 'groupdate'
 gem "chartkick"
 gem 'carrierwave', '~> 2.0'
+gem 'rspec_junit_formatter'

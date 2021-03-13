@@ -142,9 +142,8 @@ RSpec.describe '投稿内容の削除', type: :system do
       expect(page).to have_no_link '削除', href: post_path(@post2)
     end
     it 'ログインしていないと削除できない' do
-      visit root_path
       visit post_path(@post1)
-      expect(page).to have_no_link '削除', href: post_path(@post2)
+      expect(page).to have_no_link '削除', href: post_path(@post1)
     end
   end
 end
