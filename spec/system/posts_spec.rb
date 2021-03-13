@@ -47,7 +47,7 @@ RSpec.describe '投稿内容の詳細', type: :system do
     @post = FactoryBot.create(:post)
   end
   context '投稿内容が正しく表示されるとき' do
-    it '正しく内容が表示されること' do
+    it '正しく内容が表示される' do
       visit root_path
       visit post_path(@post)
       expect(page).to have_content(@post.content)

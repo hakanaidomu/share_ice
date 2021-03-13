@@ -44,7 +44,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
   end
 end
 
-RSpec.describe 'ログイン', type: :system do
+RSpec.describe 'ユーザーログイン', type: :system do
   before do
     @user = FactoryBot.create(:user)
   end
@@ -71,5 +71,33 @@ RSpec.describe 'ログイン', type: :system do
       find('input[name="commit"]').click
       expect(current_path).to eq root_path
     end
+  end
+end
+
+RSpec.describe 'ユーザーログアウト', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
+  context 'ログアウトができるとき' do
+    it 'ログインしたユーザーはログアウトができる' do
+      visit root_path
+      sign_in(@user)
+      expect(page).to have_link 'ログアウト', href: destroy_user_session_path
+      first(:link, 'ログアウト').click
+      expect(page).to have_no_link 'ログアウト', href: destroy_user_session_path
+    end
+  end
+  context 'ログアウトができない' do
+    it 'ログインしていないユーザーにはログアウトボタンが表示されない' do
+      visit root_path
+      expect(page).to have_no_link 'ログアウト', href: destroy_user_session_path
+    end
+  end
+end
+
+RSpec.describe 'ユーザー編集', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
   end
 end
