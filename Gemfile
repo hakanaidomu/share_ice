@@ -51,7 +51,8 @@ group :test do
   gem 'webdrivers'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'rspec_junit_formatter'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -71,4 +72,3 @@ gem 'kaminari'
 gem 'groupdate'
 gem "chartkick"
 gem 'carrierwave', '~> 2.0'
-gem 'rspec_junit_formatter'

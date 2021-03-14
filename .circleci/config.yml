@@ -6,12 +6,17 @@ jobs:
       environment:
         - BUNDLER_VERSION: 2.0.2
         - RAILS_ENV: 'test'
-    - image: circleci/mariadb
+        - MYSQL_HOST: 127.0.0.1
+        - MYSQL_USERNAME: 'root'
+        - MYSQL_PASSWORD: ''
+        - MYSQL_PORT: 3306
+    - image: circleci/mysql:5.7
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-        - MYSQL_ROOT_HOST: '127.0.0.1'
+        - MYSQL_ROOT_HOST: '%'
+        - MYSQL_DATABASE: ci_rails_share_ice
 
-    working_directory: ~/share_ice   
+    working_directory: ~/repo  
 
 
     steps:
@@ -34,19 +39,23 @@ jobs:
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     # Database setup
-    - run: mv ./config/database.yml.ci ./config/database.yml
-
+    - run:
+        name: Use specific database.yml # CircleCI用のデータベース設定を使う
+        command: mv config/database.yml.ci config/database.yml
+    
+    - run:
+        name: yarn Install
+        command: yarn install
+        
+    - run: bundle exec bin/webpack
     # Database setup
     - run:
         name: Databasesetup
         command: |
-           bundle exec rake db:create
-           bundle exec rake db:schema:load
+          bundle exec rake db:create
+          bundle exec rake db:schema:load --trace
 
-    - run:
-        name: yarn Install
-        command: yarn install
-    - run: bundle exec bin/webpack
+    
     # run tests!
     - run:
         name: Run rspec
@@ -55,7 +64,7 @@ jobs:
           TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
             circleci tests split --split-by=timings)"
 
-          bundle exec rspec \
+          bundle exec bundle exec rspec -f documentation \
             --format progress \
             --format RspecJunitFormatter \
             --out /tmp/test-results/rspec.xml \

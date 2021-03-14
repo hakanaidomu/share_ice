@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   validates :nickname, presence: true, length: { maximum: 8 }
-  validates :email, length: { maximum: 50 }, presence: true, uniqueness: true
+  validates :email, length: { maximum: 50 }, presence: true, uniqueness: true, uniqueness: { case_sensitive: true }
   validates :description, length: { maximum: 150 }
 
   def self.guest
