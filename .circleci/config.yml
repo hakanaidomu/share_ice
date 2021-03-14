@@ -42,7 +42,12 @@ jobs:
     - run:
         name: Use specific database.yml # CircleCI用のデータベース設定を使う
         command: mv config/database.yml.ci config/database.yml
-
+    
+    - run:
+        name: yarn Install
+        command: yarn install
+        
+    - run: bundle exec bin/webpack
     # Database setup
     - run:
         name: Databasesetup
@@ -50,10 +55,7 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:schema:load --trace
 
-    - run:
-        name: yarn Install
-        command: yarn install
-    - run: bundle exec bin/webpack
+    
     # run tests!
     - run:
         name: Run rspec
