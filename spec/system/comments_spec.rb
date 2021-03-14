@@ -13,7 +13,7 @@ RSpec.describe 'コメント投稿機能', type: :system do
       expect  do
         find('input[name="commit"]').click
         sleep 1
-      end.to change { Comment.count }.by(1)
+      end.to change {Comment.count}.by(1)
       expect(page).to have_content(@comment.content)
     end
     it 'ログインしたユーザーは投稿詳細ページで自身のコメントを削除できる' do
@@ -32,3 +32,4 @@ RSpec.describe 'コメント投稿機能', type: :system do
     end
   end
 end
+
