@@ -52,7 +52,7 @@ jobs:
           command: bundle exec rubocop
       # つづいてRSpecを走らせます。
       - run:
-          name: RSpec
+          name: Run rspec
           # 最初のパイプ | は、複数行のシェルコマンドがあることを示します。 
           command: |
             mkdir /tmp/test-results
