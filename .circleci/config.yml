@@ -34,7 +34,9 @@ jobs:
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     # Database setup
-    - run: mv ./config/database.yml.ci ./config/database.yml
+    - run:
+        name: Use specific database.yml # CircleCI用のデータベース設定を使う
+        command: mv config/database.yml.ci config/database.yml
 
     # Database setup
     - run:
