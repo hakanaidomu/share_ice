@@ -6,7 +6,7 @@ describe PostsController, type: :request do
     @user = FactoryBot.create(:user)
   end
 
-  describe'GET #index' do
+  describe'#index' do
     it "indexに遷移できる" do
       get posts_path
       expect(response).to render_template :index
@@ -39,14 +39,14 @@ describe PostsController, type: :request do
     end
     it 'showアクションにリクエストするとレスポンスに投稿済みのpostのimageが存在する' do 
       get post_path(@post)
-      expect(response.body).to include("post_image")
+      expect(response.body).to include('post_image')
     end
     it 'showアクションにリクエストするとレスポンスにコメント表示部分が存在する' do 
       get post_path(@post)
-      expect(response.body).to include("コメント")
+      expect(response.body).to include('コメント')
     end
   end
-  describe 'GET #new' do
+  describe '#new' do
     context 'ログイン時' do
       it 'ログインしていたらnewに遷移できる' do
         sign_in(@user)
@@ -70,7 +70,7 @@ describe PostsController, type: :request do
       end
     end
   end
-  describe 'GET #edit' do
+  describe '#edit' do
     context 'ログイン時' do
       it 'ログインしていたらeditに遷移できる' do
         sign_in(@post.user)
@@ -107,7 +107,7 @@ describe PostsController, type: :request do
       end
     end
   end
-  describe 'GET #destroy' do
+  describe '#destroy' do
     context 'ログイン時' do
       it 'ログインユーザーと投稿ユーザーが同じなら削除できる' do
         sign_in(@post.user)
