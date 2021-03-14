@@ -14,6 +14,7 @@ jobs:
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '%'
+        - MYSQL_DATABASE: ci_rails_share_ice
 
     working_directory: ~/repo  
 
