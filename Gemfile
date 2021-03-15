@@ -73,4 +73,3 @@ gem 'groupdate'
 gem "chartkick"
 gem 'carrierwave', '~> 2.0'
 gem 'rails_admin', '~> 2.0.0.beta'
-gem 'cancancan'
