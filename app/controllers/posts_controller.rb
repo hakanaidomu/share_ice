@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path, notice: '投稿しました'
+      redirect_to post_path(@post), notice: '投稿しました'
     else
       flash.now[:alert] = '入力内容をご確認ください'
       render :new
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     if @post.save
-      redirect_to root_path, notice: '編集しました'
+      redirect_to post_path(@post), notice: '編集しました'
     else
       flash.now[:alert] = '入力内容をご確認ください'
       render :edit
