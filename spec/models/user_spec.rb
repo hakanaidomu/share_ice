@@ -48,8 +48,8 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
-      it 'password_confirmation空では登録できない' do
-        @user.password_confirmation = nil
+      it 'password_confirmationが空では登録できない' do
+        @user.password_confirmation = ''
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
