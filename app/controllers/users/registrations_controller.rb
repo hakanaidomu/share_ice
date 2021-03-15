@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user.update(user_params)
     if current_user.update(user_params)
-      redirect_to root_path, notice: 'ユーザー情報を更新しました'
+      redirect_to user_path(@user), notice: 'ユーザー情報を更新しました'
     else
       flash.now[:alert] = '入力内容をご確認ください'
       render :edit
