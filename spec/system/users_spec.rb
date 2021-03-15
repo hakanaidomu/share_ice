@@ -172,8 +172,7 @@ RSpec.describe 'ユーザー情報の編集', type: :system do
       expect(current_path).to eq edit_user_registration_path
       fill_in 'user_nickname', with: 'ユーザー編集'
       click_button '編集する'
-      expect(current_path).to eq root_path
-      visit user_path(@user1)
+      expect(current_path).to eq user_path(@user1)
       expect(page).to have_content('ユーザー編集')
     end
   end

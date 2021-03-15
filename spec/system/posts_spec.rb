@@ -13,7 +13,7 @@ RSpec.describe '新規投稿', type: :system do
       fill_in 'post_content', with: @post.content
       attach_file 'post[image]', 'app/assets/images/default_image.jpg'
       click_button '投稿する'
-      expect(current_path).to eq root_path
+      expect(current_path).to eq post_path(@post)
       expect(page).to have_content(@post.content)
     end
   end
@@ -102,7 +102,7 @@ RSpec.describe '投稿内容の編集', type: :system do
       expect(current_path).to eq edit_post_path(@post1)
       fill_in 'post_content', with: '編集しました'
       click_button '編集する'
-      expect(current_path).to eq root_path
+      expect(current_path).to eq post_path(@post)
       expect(page).to have_content('編集しました')
     end
   end
