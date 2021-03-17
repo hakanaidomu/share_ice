@@ -14,12 +14,12 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-80 p-2 mb-4 rounded form" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-50 p-2 mb-4 rounded form" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" ,class: "w-80 p-2 mb-4 rounded form" %>
+    <%= f.password_field :password, autocomplete: "current-password" ,class: "w-50 p-2 mb-4 rounded form" %>
   </div>
 
   <div class="actions m-4">
