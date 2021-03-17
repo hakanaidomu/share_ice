@@ -1,15 +1,5 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
-      <div class="h1 my-4 text-center badge-success badge-pill"><%="人気タグ"%></div>
-        <div class="list-group text-center text-break">
-            <% @tags.each do |tag|%>
-              <%= link_to posts_path(tag: tag.name) do%>
-                <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
-              <%end%>
-            <%end%>
-        </div>
-    </div>
       <div class="col-lg-10">
         <div class="previews">
           <div class="slider">
@@ -18,17 +8,25 @@
             <% end %>
           </div>
         </div>
-
         <div class="row">
-        
         <%# <% if @search_posts %>
           <%# <%= render partial: 'posts/post', collection: @search_posts %>
         <%# <% else %>
           <%= render partial: 'posts/post', collection: @posts %>
         <%# <% end %>
-  
         </div>
+
         <%= paginate @posts %>
+      </div>
+      <div class="col-lg-2">
+      <div class="h1 my-4 text-center badge-success badge-pill"><%="人気タグ"%></div>
+        <div class="list-group text-center text-break">
+            <% @tags.each do |tag|%>
+              <%= link_to posts_path(tag: tag.name) do%>
+                <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
+              <%end%>
+            <%end%>
+        </div>
       </div>
   </div>
 </div>
