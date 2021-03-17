@@ -20,7 +20,7 @@
       </div>
       <div class="col-lg-2">
       <div class="h1 my-4 text-center badge-success badge-pill"><%="人気タグ"%></div>
-        <div class="list-group text-center text-break">
+        <div class="list-group text-center text-break my-4">
             <% @tags.each do |tag|%>
               <%= link_to posts_path(tag: tag.name) do%>
                 <div class="badge badge badge-info"><%= "#{tag.name}(#{tag.taggings_count})" %></div>
