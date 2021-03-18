@@ -12,9 +12,9 @@ jobs:
         - MYSQL_PORT: 3306
     - image: circleci/mysql:5.7
       environment:
-        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+        environment:
         - MYSQL_ROOT_HOST: '%'
-        - MYSQL_DATABASE: ci_rails_share_ice
+        - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
 
     working_directory: ~/repo  
 
