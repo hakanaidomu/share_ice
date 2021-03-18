@@ -99,7 +99,7 @@ end
 RSpec.describe 'ユーザー情報の詳細', type: :system do
   before do
     @user1 = FactoryBot.create(:user)
-    @user2 = FactoryBot.create(:user)  
+    @user2 = FactoryBot.create(:user)
   end
   context 'ユーザーの詳細が正しく表示されるとき' do
     it 'nicknameが表示される' do
@@ -162,7 +162,7 @@ end
 RSpec.describe 'ユーザー情報の編集', type: :system do
   before do
     @user1 = FactoryBot.create(:user)
-    @user2 = FactoryBot.create(:user)  
+    @user2 = FactoryBot.create(:user)
   end
   context 'ユーザー情報が編集できるとき' do
     it 'ログインしたユーザーは自身のユーザー情報ページの編集ができる' do
@@ -193,7 +193,7 @@ end
 
 RSpec.describe 'ユーザー情報の削除', type: :system do
   before do
-    @user = FactoryBot.create(:user)  
+    @user = FactoryBot.create(:user)
   end
 
   context 'ユーザー情報が削除できるとき' do
