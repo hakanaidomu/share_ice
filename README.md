@@ -1,6 +1,6 @@
 # [シェアあいす!](https://shareice.net)
 # アプリケーション概要
-[![Image from Gyazo](https://i.gyazo.com/cdff8e00d122b05889c47d2a6a274ad7.gif)](https://gyazo.com/cdff8e00d122b05889c47d2a6a274ad7)
+![f3b0bc8ec3c1801d88942c2ec563c8d5](https://user-images.githubusercontent.com/76892391/111876701-46013d80-89e3-11eb-83eb-e70505b55a12.gif)
 
 シェアあいす!は食べたアイスの感想を投稿できるアプリです。  
 * アイスの感想の投稿、編集、削除を行うことができます。  
@@ -29,20 +29,20 @@ https://shareice.net
 ***
 
 ## スライドショー機能の実装
-[![Image from Gyazo](https://i.gyazo.com/7386c7fb15ad8883ecd7e7305e863a20.gif)](https://gyazo.com/7386c7fb15ad8883ecd7e7305e863a20)
+![e0c7a4e08b8c828ad670a130841a743f](https://user-images.githubusercontent.com/76892391/111876776-a5f7e400-89e3-11eb-83aa-ffb1845441b7.gif)
 * トップページでは投稿された画像をスライドショーで楽しむことができます。  
 * 投稿された画像をランダムに表示させることによって様々な画像を楽しむことができます。  
 * スライドショーの画像をクリック時には投稿の詳細ページに遷移いたします。
 
 ***
 ## タグの絞り込み機能
-[![Image from Gyazo](https://i.gyazo.com/945973815866760f317419a5e85587dc.gif)](https://gyazo.com/945973815866760f317419a5e85587dc)
+![945973815866760f317419a5e85587dc](https://user-images.githubusercontent.com/76892391/111877005-95943900-89e4-11eb-9aa1-3c291e6ea42f.gif)
 * タグをクリックすることにより、投稿の絞り込みができます。  
 * 絞り込んだ投稿のスライドショーを楽しむことができます。
 
 ***
 ## コメント機能、いいね機能の実装(非同期通信)
-[![Image from Gyazo](https://i.gyazo.com/38e53071c3e3e5704c801644bcc61cfa.gif)](https://gyazo.com/38e53071c3e3e5704c801644bcc61cfa)
+![38e53071c3e3e5704c801644bcc61cfa](https://user-images.githubusercontent.com/76892391/111877110-0d626380-89e5-11eb-92a4-c955d345c64b.gif)
 * 投稿には非同期通信を用いた、いいねとコメントを送ることができます。  
 * いいねの取り消しと削除も非同期で行うことができます。
 
