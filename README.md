@@ -74,6 +74,9 @@ https://shareice.net
 * アプリを公開するに当たって、品質担保のためテストコードを100件以上書きました。  
 * また、CircleCIを導入し、プルリクエスト作成時に自動でRSpecが実行され、テストを通過しないとマージできない設定にしてあります。  
 
+# AWS構成図
+[![Image from Gyazo](https://i.gyazo.com/0eab9b47485b849ebfb282119316718f.png)](https://gyazo.com/0eab9b47485b849ebfb282119316718f)
+
 # 使用技術(開発環境)
 
 ## バックエンド
@@ -95,7 +98,7 @@ https://shareice.net
 ## WEBサーバー(本番環境)
 * nginx
 
-## アプリケーショーんサーバー(本番環境)
+## アプリケーションサーバー(本番環境)
 * unicorn
 
 ## ソース管理
@@ -107,84 +110,10 @@ https://shareice.net
 ## エディタ
 * VScode
 
-***
-
-# テーブル設計
-
-## usersテーブル
-
-| Column             | Type   | options                  |
-|--------------------| -------|------------------------- |
-| nickname           | string | null: false              |
-| email              | string | null: false,unique: true |
-| encrypted_password | string | null: false              |
-| description        | text   |                          |
-| peofile_image      | string |                          |
- 
-### Association
-- has_many :posts
-- has_many :comments
-- has_many :likes
-
-## postsテーブル
-
-| Column           | Type          | options                        |
-| ---------------- | ------------- | ------------------------------ |
-| content          | text          | null: false                    |
-| image            | string        | null: false                    |
-| price            | integer       |                                |
-| calorie          | integer       |                                |
-| user_id          | references    | null: false, foreign_key: true |
-| likes_count      | integer       |                                |
- 
-### Association
-- belongs_to :user
-- has_many   :comments
-- has_many   :likes
-- has_many   :post_tags
-
-## commentsテーブル
-
-| Column         | Type          | options                        |
-| ---------------| ------------- | ------------------------------ |
-| content        | text          | null: false                    |  
-| user_id        | references    | null: false, foreign_key: true |
-| post_id        | references    | null: false, foreign_key: true |
-
-### Association
-- belong_to :user
-- has_one   :post
-
-## likesテーブル
-
-| Column            | Type          | options                        |
-| ----------------- | ------------- | ------------------------------ |
-| user_id           | references    | null: false, foreign_key: true |
-| posts_id          | references    | null: false, foreign_key: true |
-
-### Association
-- belong_to :user
-- has_one   :post
-
-## post_tagsテーブル
-| Column           | Type          | options                        |
-| ---------------- | ------------- | ------------------------------ |
-| tag_name         | text          |                                |
-| post_tag         | text          |                                |
-
-### Association
-- belongs_to :post
-- belongs_to :tags
-
-## tagsテーブル
-| Column           | Type          | options                        |
-| ---------------- | ------------- | ------------------------------ |
-| tag_name         | text          | null: false                    |
-| post_tag         | text          |                                |
-
-### Association
-- has_many :post_tags
-
+# 今後実装したい機能
+* ランキング機能の実装  
+* UI,UXの改善
+* Vue.jsを導入した一部SPA化
 
 # ER図 
 [![Image from Gyazo](https://i.gyazo.com/295df8004f2e7bd9129305d0c7b82bae.png)](https://gyazo.com/295df8004f2e7bd9129305d0c7b82bae)
