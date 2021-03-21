@@ -49,6 +49,7 @@ https://shareice.net
 * gem rails_adminを用いた管理者機能の実装。  
 (管理者が容易に削除や編集ができるようにしております)  
 * gem acts-as-taggable-onとbootstrap-tagsinputを用いたタグ付機能の実装。  
+* 独自ドメイン取得とACMによるHTTPS通信化。
 
 # 工夫したポイント
 ## チャート図の実装  
@@ -76,7 +77,7 @@ https://shareice.net
 
 ## バックエンド
 * Ruby 2.6.5
-* Rails 6.0.5
+* Rails 6.0.3.5
 
 ## フロントエンド 
 * HTML/CSS 
