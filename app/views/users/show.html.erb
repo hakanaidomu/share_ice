@@ -47,16 +47,16 @@
           <%= "直近1週間のデータ" %>
         </div>
         <div class="border-bottom">
-            <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "今週アイスに使った金額(#{@week_price}円)", min: 0, max: 1000 %>
+          <%= column_chart @data.group_by_day(:created_at, last: 7).sum(:price), xtitle: "今週アイスに使った金額(#{@week_price}円)", min: 0 %>
         </div>
-            <%= column_chart @data.group_by_day(:created_at,last: 7).sum(:calorie), xtitle: "今週の摂取カロリー(#{@week_calorie}kcal)", min: 0, max: 1000 %>    
+          <%= column_chart @data.group_by_day(:created_at,last: 7).sum(:calorie), xtitle: "今週の摂取カロリー(#{@week_calorie}kcal)", min: 0, max: 1000 %>    
       </div>
       <div class="card">
         <div class="card-header text-center">
           <%= "直近1ヶ月のデータ" %>
         </div>
         <div class="border-bottom text-center">
-          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額(円)", min: 0, max: 1000%>
+          <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:price), xtitle: "アイスに使った金額(円)", min: 0 %>
         </div>
           <%= column_chart @data.group_by_day(:created_at, last: 30).sum(:calorie), xtitle: "摂取カロリー(kcal)", min: 0, max: 1000 %>  
       </div>

@@ -43,10 +43,10 @@ RSpec.describe Post, type: :model do
           expect(@post.errors.full_messages).to include('アイスの感想は150文字以内で入力してください')
         end
 
-        it 'priceが1000以上では登録できない' do
-          @post.price = 1000
+        it 'priceが1999以上では登録できない' do
+          @post.price = 2000
           @post.valid?
-          expect(@post.errors.full_messages).to include('値段は999以下の値にしてください')
+          expect(@post.errors.full_messages).to include('値段は1999以下の値にしてください')
         end
 
         it 'priceが全角数字では登録できない' do

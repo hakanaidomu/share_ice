@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
     content { Faker::Lorem.sentence }
-    price { 200 }
+    price { 1000 }
     calorie { 300 }
     association :user
     after(:build) do |post|
