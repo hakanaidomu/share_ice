@@ -21,18 +21,18 @@
         <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶   "%>
       </div>
       <div class="m-3 text-center">
-          <%= f.label :image, "アイスの写真(必須)"%><br>
-          <%= f.file_field :image, id:"post-image" %>
+        <%= f.label :image, "アイスの写真(必須)"%><br>
+          %= f.file_field :image, id:"post-image" %>
         <%= image_tag @post.image, id: 'post-image' if @post.image.present? %> 
       </div>
-    <div class="caution p-2">
-      無関係な投稿や他者への誹謗中傷はご遠慮ください
+      <div class="caution p-2">
+        無関係な投稿や他者への誹謗中傷はご遠慮ください
+      </div>
+      <div id="image-list"></div>
+      <div class="post-btn-contents text-center p-4"">
+        <%= f.submit "編集する" ,class: "btn btn-primary rounded form mb-4" %>
+      </div>
+      <% end %>
     </div>
-    <div id="image-list"></div>
-    <div class="post-btn-contents text-center p-4"">
-      <%= f.submit "編集する" ,class: "btn btn-primary rounded form mb-4" %>
-    </div>
-    <% end %>
-  </div>
   </div>
 </div>
