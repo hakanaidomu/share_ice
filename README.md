@@ -112,4 +112,4 @@ https://shareice.net
 * Vue.jsを導入し、一部SPA化
 
 # ER図 
-[![Image from Gyazo](https://i.gyazo.com/295df8004f2e7bd9129305d0c7b82bae.png)](https://gyazo.com/295df8004f2e7bd9129305d0c7b82bae)
+[![Image from Gyazo](https://i.gyazo.com/86fa5420aa106de6d5b06e58874bf32a.png)](https://gyazo.com/86fa5420aa106de6d5b06e58874bf32a)
