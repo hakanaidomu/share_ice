@@ -4,27 +4,22 @@
       <div class="h3 mt-1 mb-3 text-center">投稿の編集</div>
         <%= form_with(model: @post, local: true) do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
-
       <div class="form-group text-center">
         <%= f.label :content, "アイスの感想(必須150文字以内)"%>
         <%= f.text_area :content, maxlength: "150", placeholder: "例)抹茶味のアイスでした。濃厚でコクがあってとても美味しかったです。でもちょっと高かったかな？(T ^ T)", class: "w-100 p-2 rounded form"  %>
       </div>
-
       <div class="form-group text-center">
         <%= f.label :price, "アイスの値段(円)(任意、半角数字)"%>
         <%= f.text_field :price, maxlength: "4",placeholder: "例)150", class: "w-100 p-2 rounded form" %>
-      </div>
-    
+      </div> 
       <div class="form-group text-center">
         <%= f.label :calorie, "アイスのカロリー(kcal)(任意、半角数字)"%>
         <%= f.text_field :calorie, maxlength: "3",placeholder: "例)300", class: "w-100 p-2 rounded form" %>
       </div>
-
       <div class="tags">
-        <%= f.label :tag_list, ",かエンターキーでタグ付けができます(タグは最大8文字,5個まで)", class: "text-center" %>
-        <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶,バニラ,     "%>
+        <%= f.label :tag_list, "タグ入力後にエンターキーでタグの登録が行えます(任意、タグは最大8文字,5個まで)", class: "text-center" %>
+        <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶   "%>
       </div>
-
       <div class="m-3 text-center">
           <%= f.label :image, "アイスの写真(必須)"%><br>
           <%= f.file_field :image, id:"post-image" %>
