@@ -18,7 +18,7 @@
       </div>
       <div class="tags">
         <%= f.label :tag_list, "タグ入力後にエンターキーでタグの登録が行えます(任意、タグは最大8文字,5個まで)", class: "text-center" %>
-        <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶   "%>
+        <%= text_field_tag 'post[tag_list]', @post.tag_list.join(","), data: {role: "tagsinput"}  ,placeholder: "例)抹茶"%>
       </div>
       <div class="m-3 text-center">
         <%= f.label :image, "アイスの写真(必須)"%><br>
