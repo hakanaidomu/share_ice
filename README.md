@@ -80,7 +80,7 @@ https://shareice.net
 
 ## フロントエンド 
 * HTML/CSS 
-* JavaScript,jQuery
+* JavaScript, jQuery
 * bootstpar 4.5.0
 
 ## データベース
@@ -97,7 +97,7 @@ https://shareice.net
 * unicorn
 
 ## ソース管理
-* GitHub,  GitHubDesktop
+* GitHub, GitHubDesktop
 
 ## テスト  
 * RSpec
@@ -107,7 +107,7 @@ https://shareice.net
 
 # 今後実装したい機能
 * ランキング機能の実装  
-* UI,UXの改善
+* UI、UXの改善
 * Vue.jsを導入し、一部SPA化
 
 # ER図 
