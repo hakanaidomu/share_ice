@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_004404) do
+ActiveRecord::Schema.define(version: 2021_04_04_010716) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 2021_04_04_004404) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "chat_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "chat_room_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
   end
 
   create_table "chat_room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -144,6 +154,8 @@ ActiveRecord::Schema.define(version: 2021_04_04_004404) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_messages", "chat_rooms"
+  add_foreign_key "chat_messages", "users"
   add_foreign_key "chat_room_users", "chat_rooms"
   add_foreign_key "chat_room_users", "users"
   add_foreign_key "posts", "users"
