@@ -5,6 +5,11 @@
         <div class="card-header text-center">
           <%= "#{@user.nickname}さんのプロフィール" %>
         </div>
+        <% if user_signed_in? && current_user.id != @user.id %>
+        <div class="card-text text-center border-bottom">
+          <%= link_to "#{@user.nickname}さんにチャットを送る", chat_rooms_path(params: { user_id: @user.id }), method: :post %>
+        </div>
+        <% end %>
         <div class="card-body text-center border-bottom">
           <div class="card-title">
             自己紹介文
@@ -30,7 +35,7 @@
           <%= "今週の摂取カロリー" %>
           <span class="font-weight-bold"><%= "#{@week_calorie}kcal"%></span><br>
         </div>
-        <div class="card-text text-center">
+        <div class="card-text text-center border-bottom">
           <%= "今まで食べたアイスの摂取カロリー"%>
           <span class="font-weight-bold"><%= "#{@total_calorie}kcal"%></span><br>
         </div>
