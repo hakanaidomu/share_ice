@@ -81,7 +81,7 @@ https://shareice.net
 ## フロントエンド 
 * HTML/CSS 
 * JavaScript, jQuery
-* bootstpar 4.5.0
+* Bootstrap 4.5.0
 
 ## データベース
 * MySQL  
