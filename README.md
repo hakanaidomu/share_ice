@@ -63,8 +63,7 @@ https://shareice.net
 * 実際にアプリを公開し、利用した方の意見を取り入れブラッシュアップを行いました。  
 * ブラッシュアップを行った例は以下の通りです。  
 * 公開時には値段の上限値を999になるようにバリデーションを設定していましたが、1000円以上のアイスも登録したいという利用者の意見を受け、値段を1999まで登録できるようにバリデーションを再設定しました。  
-* 例を書く  
-* 例を書く  
+* タグ入力画面がわかりづらいと言うご意見を受け、説明文や例文を修正し登録画面をわかりやすくいたしました。   
 
 ## テストコード  
 * アプリを公開するに当たって、品質担保のためテストコードを100件以上書きました。  
@@ -81,8 +80,8 @@ https://shareice.net
 
 ## フロントエンド 
 * HTML/CSS 
-* JavaScript,jQuery
-* bootstpar 4.5.0
+* JavaScript, jQuery
+* Bootstrap 4.5.0
 
 ## データベース
 * MySQL  
@@ -98,7 +97,7 @@ https://shareice.net
 * unicorn
 
 ## ソース管理
-* GitHub,  GitHubDesktop
+* GitHub, GitHubDesktop
 
 ## テスト  
 * RSpec
@@ -108,8 +107,8 @@ https://shareice.net
 
 # 今後実装したい機能
 * ランキング機能の実装  
-* UI,UXの改善
+* UI、UXの改善
 * Vue.jsを導入し、一部SPA化
 
 # ER図 
-[![Image from Gyazo](https://i.gyazo.com/295df8004f2e7bd9129305d0c7b82bae.png)](https://gyazo.com/295df8004f2e7bd9129305d0c7b82bae)
+[![Image from Gyazo](https://i.gyazo.com/7eabed6e48685953a5fc537e956743b3.png)](https://gyazo.com/7eabed6e48685953a5fc537e956743b3)
