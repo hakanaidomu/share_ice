@@ -1,2 +1,0 @@
-class ChatRoomUser < ApplicationRecord
-end
