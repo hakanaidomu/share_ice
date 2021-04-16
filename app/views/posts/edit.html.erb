@@ -22,7 +22,7 @@
       </div>
       <div class="m-3 text-center">
         <%= f.label :image, "アイスの写真(必須)"%><br>
-          %= f.file_field :image, id:"post-image" %>
+        <%= f.file_field :image, id:"post-image" %>
         <%= image_tag @post.image, id: 'post-image' if @post.image.present? %> 
       </div>
       <div class="caution p-2">
