@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :chat_room_users
   has_many :chat_rooms, through: :chat_room_users
-  has_many :chat_messages
   has_one_attached :image
 
   validates :nickname, presence: true, length: { maximum: 8 }
