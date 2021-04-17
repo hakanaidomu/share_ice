@@ -9,7 +9,7 @@
 * トップページでは投稿に基づいた画像をスライドショーで実装し、様々な投稿を眺めることができます。  
 
 # 本番環境
-https://shareice.net  
+http://3.114.221.28/
 * 右上かんたんログインボタンよりゲストユーザーとしてログインすることができます。  
 
 # 制作背景
@@ -49,7 +49,6 @@ https://shareice.net
 * gem rails_adminを用いた管理者機能の実装。  
 (管理者が容易に削除や編集ができるようにしております)  
 * gem acts-as-taggable-onとbootstrap-tagsinputを用いたタグ付機能の実装。  
-* 独自ドメイン取得とACMによるHTTPS通信化。
 
 # 工夫したポイント
 ## チャート図の実装  
@@ -69,9 +68,6 @@ https://shareice.net
 * アプリを公開するに当たって、品質担保のためテストコードを100件以上書きました。  
 * また、CircleCIを導入し、プルリクエスト作成時に自動でRSpecが実行され、テストを通過しないとマージできない構築を行いました。  
 
-# AWS構成図
-[![Image from Gyazo](https://i.gyazo.com/0eab9b47485b849ebfb282119316718f.png)](https://gyazo.com/0eab9b47485b849ebfb282119316718f)
-
 # 使用技術(開発環境)
 
 ## バックエンド
@@ -87,7 +83,7 @@ https://shareice.net
 * MySQL  
 
 ## インフラ  
-* AWS(EC2, S3, Route53, ACM, ALB)
+* AWS(EC2, S3)
 * Capistrano
 
 ## WEBサーバー(本番環境)
